@@ -1,4 +1,6 @@
 import React from "react";
+import {Link} from 'react-router-dom';
+
 // allows for text input use 
 import { TextField, TextFieldIcon, TextFieldHelperText } from 'rmwc/TextField';
 // allows for card use 
@@ -43,7 +45,7 @@ const Login = () =>(
 	      <CardAction>Login</CardAction>
 	      <Typography>Don't an account...
 	      	<span>
-	      	<CardAction>Sign in</CardAction>
+	      	<CardAction className={window.location.pathname === "/login/signin" ? "active" : ""}><Link className="Link" to="/login/signin">Sign up</Link></CardAction>
 			</span>
 		   </Typography>
 	    </CardActionButtons>
