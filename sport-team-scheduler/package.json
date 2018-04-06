@@ -1,16 +1,27 @@
 {
-  "name": "sport-team-scheduler",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0",
-    "react-scripts": "1.1.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "name": "sport-team-scheduler",
+    "version": "1.0.0",
+    "description": "Sport-team-scheduler",
+    "main": "server.js",
+    "scripts": {
+        "server": "node server.js",
+        "client": "node scripts/start-client.js",
+        "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+        "build": "node scripts/build.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "installDeps": "yarn && cd client && yarn"
+    },
+    "author": "Shirley Ramirez <shirley.mramirez@yahoo.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "concurrently": "^3.5.1",
+        "nodemon": "^1.17.3"
+    },
+    "dependencies": {
+        "body-parser": "^1.18.2",
+        "express": "^4.16.3",
+        "mongoose": "^5.0.12",
+        "react-router-dom": "^4.2.2",
+        "socket-io": "^1.0.0"
+    }
 }
