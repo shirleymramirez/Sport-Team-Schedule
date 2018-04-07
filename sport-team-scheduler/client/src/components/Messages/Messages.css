@@ -1,0 +1,13 @@
+.chat-messages {
+    display: flex;
+    flex-direction: column;
+}
+
+.messages-content-view {
+    flex-grow: 1;
+    margin-top: 0;
+}
+
+.messages-content-view-color {
+    color: black;
+}
