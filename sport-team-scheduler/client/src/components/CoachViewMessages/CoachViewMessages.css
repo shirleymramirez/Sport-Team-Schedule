@@ -1,0 +1,17 @@
+#messages {
+    padding: 5px;
+    background-color: blue;
+    text-align: center;
+    width: 270px;
+    height: 800px;
+    float: left;
+    position: absolute;
+    top: 63px;
+    left: -50px;
+    margin-left: 35px;
+    color: white;
+}
+
+#message {
+    color: white;
+}
