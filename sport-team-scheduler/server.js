@@ -4,6 +4,10 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 console.log(process.env.PORT);
+
+const server = require("http").createServer();
+const io = (module.exports.io = require("socket.io")(server));
+
 const PORT = process.env.PORT || 3001;
 
 // Configure body parser for AJAX requests
@@ -19,13 +23,17 @@ mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/sport-team-scheduler"
 );
 
+io.on('connection, SocketManager');
+server.listen(PORT, () => {
+  console.log("Connected to port:" + PORT);
+});
+
+
 //Start the API server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
 
-// const server = require("http").createServer();
-// const io = require("socket.io")(server);
 
 // io.on("connection", function(client) {
 //   client.on("register", handleRegister);
