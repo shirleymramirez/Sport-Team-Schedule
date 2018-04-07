@@ -32,7 +32,12 @@
         "react-redux": "^5.0.7",
         "react-router-dom": "^4.2.2",
         "socket-io": "^1.0.0"
+<<<<<<< HEAD
+    }
+}
+=======
 
     }
 }
 
+>>>>>>> 6060cfaf4f3c61709d7fdf06df74c6f01a05a5b6

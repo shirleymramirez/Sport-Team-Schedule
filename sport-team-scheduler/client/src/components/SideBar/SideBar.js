@@ -7,7 +7,7 @@ import { Button, ButtonIcon } from "rmwc/Button";
 import { Typography } from "rmwc/Typography";
 
 const SideBar = () =>
-  <Card style={{ width: "30%" }}>
+  <Card style={{ width: "30%" }} className="sidebar-background-color">
     <TextField
       className="sidebar-inputSearch"
       withLeadingIcon="search"
