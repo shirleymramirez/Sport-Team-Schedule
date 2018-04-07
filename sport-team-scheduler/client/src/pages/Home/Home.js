@@ -13,7 +13,7 @@ const Home = () =>
 	  <GridCell span="4"></GridCell>
 	  <GridCell span="4">
 	  <center>
-	  	<Button stroked className="btn1" ><h2>Parent</h2></Button>
+	  	<Button stroked className="btn1" onClick={this.parentSubmit}><h2>Parent</h2></Button>
 	  	<Button stroked className="btn2"><h2>Coach</h2></Button>
 	  </center>
 	  </GridCell>

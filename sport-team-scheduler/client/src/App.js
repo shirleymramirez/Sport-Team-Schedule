@@ -8,6 +8,7 @@ import Roster from "./pages/Roster";
 import CoachView from "./pages/CoachView";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import "./index.css";
 
 
 const App = () =>
