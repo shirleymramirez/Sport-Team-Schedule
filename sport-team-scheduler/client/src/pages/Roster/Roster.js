@@ -1,4 +1,5 @@
 import React from "react";
+import './roster.css';
 import { Grid, GridCell } from 'rmwc/Grid';
 import { Typography } from 'rmwc/Typography';
 import { Button, ButtonIcon } from 'rmwc/Button';
@@ -26,7 +27,7 @@ const Roster = () => (
 	  </GridCell>
 
 	<GridCell span="4" className="rosterForm">
-		<Card style={{width: '30rem'}}>
+		<Card style={{width: '30rem'}} className="rosterView">
   		<CardPrimaryAction>
     	<CardMedia square style={{backgroundImage: 'url()'}}>
       	<CardMediaContent>
