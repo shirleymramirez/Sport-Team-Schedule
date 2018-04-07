@@ -1,18 +1,13 @@
-#messages{	
-	padding: 5px;
-	background-color: blue;
-	text-align: center;
-	width: 270px;
-	height: 800px;
-	float: left;
-	position: absolute;
-	top: 63px;
-	left: -50px;
-	margin-left: 35px;
-	color: white;
+.chat-messages {
+    display: flex;
+    flex-direction: column;
 }
 
-#message {
+.messages-content-view {
+    flex-grow: 1;
+    margin-top: 0;
+}
 
-	color: white;
+.messages-content-view-color {
+    color: black;
 }

@@ -7,6 +7,7 @@ import Signin from "./pages/Signin"
 import CoachView from "./pages/CoachView";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import "./index.css";
 
 const App = () =>
   <Router>
