@@ -31,10 +31,11 @@ const Signin = () =>(
 	        theme="text-secondary-on-background"
 	        style={{marginTop: '-1rem'}}
 	      >
-			<TextField label="UserName" />
-	      </Typography>
-	      <Typography use="body1" tag="div" theme="text-secondary-on-background">
-		<TextField label="PassWord" />
+			<TextField label="Your Name" />
+			<TextField label="Your Child's Name"/>
+			<TextField label="Phone Number"/>
+			<TextField label="Email"/>
+			<TextField label="Password"/>
 	      </Typography>
 	    </div>
 	  </CardPrimaryAction>
@@ -47,6 +48,7 @@ const Signin = () =>(
  </GridCell>
  <GridCell span="4"></GridCell>
 </Grid>
+<br />
 </div>
 
 );
