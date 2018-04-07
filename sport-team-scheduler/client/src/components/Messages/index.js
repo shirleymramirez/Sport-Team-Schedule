@@ -1,1 +1,4 @@
-export { default } from "./Messages.js";
+
+import Messages from "./Messages";
+
+export {Messages};
