@@ -14,6 +14,8 @@
     "author": "Shirley Ramirez <shirley.mramirez@yahoo.com>",
     "license": "MIT",
     "devDependencies": {
+        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-react": "^6.24.1",
         "concurrently": "^3.5.1",
         "nodemon": "^1.17.3"
     },
@@ -30,5 +32,12 @@
         "react-redux": "^5.0.7",
         "react-router-dom": "^4.2.2",
         "socket-io": "^1.0.0"
+<<<<<<< HEAD
     }
 }
+=======
+
+    }
+}
+
+>>>>>>> 6060cfaf4f3c61709d7fdf06df74c6f01a05a5b6
