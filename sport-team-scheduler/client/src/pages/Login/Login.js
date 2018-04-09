@@ -43,7 +43,7 @@ const Login = () =>(
 	  <CardActions>
 	    <CardActionButtons>
 	      <CardAction>Login</CardAction>
-	      <Typography>Don't an account...
+	      <Typography>Don't have an account...
 	      	<span>
 	      	<CardAction className={window.location.pathname === "/login/signin" ? "active" : ""}><Link className="Link" to="/login/signin">Sign up</Link></CardAction>
 			</span>
