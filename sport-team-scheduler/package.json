@@ -34,7 +34,15 @@
         "passport-local": "^1.0.0",
         "react-redux": "^5.0.7",
         "react-router-dom": "^4.2.2",
+<<<<<<< HEAD
         "socket-io": "^1.0.0",
         "socket.io": "^2.1.0"
     }
 }
+=======
+        "socket-io": "^1.0.0"
+
+    }
+}
+
+>>>>>>> d4c7605d4f4e8110caddaee10de56c3656c0e4cc
