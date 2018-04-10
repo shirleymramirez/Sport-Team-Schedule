@@ -1,7 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 node_modules/
 =======
 
 >>>>>>> 3e30d154c5cc79dcc179e709e8805c6e4b66ea05
+=======
+node_modules/
+>>>>>>> 0679e374c0a2f15f607cd861a6dd698cdd02ca63
 env
 .DS-Store
