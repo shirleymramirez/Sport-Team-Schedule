@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from 'react-router-dom';
 
 // allows for text input use 
-import { TextField, TextFieldIcon, TextFieldHelperText } from 'rmwc/TextField';
+import { TextField } from 'rmwc/TextField';
 // allows for card use 
 import {
   Card,
@@ -10,8 +10,7 @@ import {
   CardMedia,
   CardAction,
   CardActions,
-  CardActionButtons,
-  CardActionIcons
+  CardActionButtons
 } from 'rmwc/Card';
 import { Typography } from 'rmwc/Typography';
 import { Grid, GridCell } from 'rmwc/Grid';
@@ -45,7 +44,7 @@ const Login = () =>(
 	      <CardAction>Login</CardAction>
 	      <Typography>Don't have an account...
 	      	<span>
-	      	<CardAction className={window.location.pathname === "/login/signin" ? "active" : ""}><Link className="Link" to="/login/signin">Sign up</Link></CardAction>
+	      	<CardAction className={window.location.pathname === "/login/signin" ? "active" : ""}><Link className="Link" to="/login/signin">log in</Link></CardAction>
 			</span>
 		   </Typography>
 	    </CardActionButtons>

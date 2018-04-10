@@ -31,11 +31,15 @@ const Signin = () =>(
 	        theme="text-secondary-on-background"
 	        style={{marginTop: '-1rem'}}
 	      >
-			<TextField label="Your Name" />
-			<TextField label="Your Child's Name"/>
-			<TextField label="Phone Number"/>
-			<TextField label="Email"/>
-			<TextField label="Password"/>
+	      <form method="post" action="/users/register">
+			<TextField label="Custom Useer" name="username" />	      
+			<TextField label="Your Name" name="name" />
+			<TextField label="Your Child's Name" name="kidsName" />
+			<TextField label="Phone Number" name="number" />
+			<TextField label="Email" name="email" />
+			<TextField label="Password" name="Password" />
+			<TextField label="Renter Password" name='Password2' />
+		  </form>	
 	      </Typography>
 	    </div>
 	  </CardPrimaryAction>
