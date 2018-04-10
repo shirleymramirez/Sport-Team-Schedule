@@ -4,10 +4,12 @@ import Home from "./pages/Home";
 import Chat from "./pages/Chat";
 import Login from "./pages/Login";
 import Signin from "./pages/Signin"
+import Roster from "./pages/Roster";
 import CoachView from "./pages/CoachView";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import "./index.css";
+
 
 const App = () =>
   <Router>
@@ -15,8 +17,10 @@ const App = () =>
       <Nav />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/home/login" component={Login} />
         <Route exact path="/chat" component={Chat} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/roster" component={Roster} />
         <Route exact path="/login/signin" component={Signin} />
         <Route exact path="/coach" component={CoachView} />
         <Route component={Home} />

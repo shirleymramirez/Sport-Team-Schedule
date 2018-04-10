@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 import {
   Toolbar,
   ToolbarRow,
@@ -6,6 +7,9 @@ import {
   ToolbarSection,
   ToolbarMenuIcon
 } from "rmwc/Toolbar";
+import { SimpleMenu, MenuItem } from 'rmwc/Menu';
+import { Button } from 'rmwc/Button';
+
 
 import "./Nav.css";
 
@@ -13,9 +17,16 @@ const Nav = () =>
   <Toolbar>
     <ToolbarRow>
       <ToolbarSection alignStart>
-        <ToolbarMenuIcon use="menu" />
+          <SimpleMenu 
+            handle={ <Button raised></Button> }>
+  <MenuItem className={window.location.pathname === "/chat" ? "active" : ""}><Link className="chat" to="/chat">Chat</Link></MenuItem>
+  <MenuItem className={window.location.pathname === "/schedule" ? "active" : ""}><Link className="schedule" to="/chat">Schedule</Link></MenuItem>
+  <MenuItem className={window.location.pathname === "/roster" ? "active" : ""}><Link className="roster" to="/roster">Team Roster</Link></MenuItem>
+</SimpleMenu>
         <ToolbarTitle>Sport Team Scheduler</ToolbarTitle>
       </ToolbarSection>
     </ToolbarRow>
   </Toolbar>;
+
+
 export default Nav;
