@@ -1,12 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const routes = require("./routes");
+const routes = require("./routes/");
 const app = express();
-console.log(process.env.PORT);
-
-const server = require("http").createServer();
-const io = (module.exports.io = require("socket.io")(server));
+const path = require("path");
 
 const PORT = process.env.PORT || 3001;
 
@@ -15,49 +12,30 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // Serve up static assets
 app.use(express.static("client/build"));
+
 // Add routes, both API and view
 app.use(routes);
+
+// Set up promises with mongoose
+mongoose.Promise = global.Promise;
 
 // Connect to the Mongo DB
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/sport-team-scheduler"
 );
 
-io.on('connection, SocketManager');
+// Socket.io set-up
+const server = require("http").Server(app);
+const io = module.exports.io = require("socket.io")(server);
+
+const SocketManager = require("./socketmanager/SocketManager");
+
+io.on("connection", SocketManager)
+  console.log("A user connected");
+
 server.listen(PORT, () => {
   console.log("Connected to port:" + PORT);
 });
-
-
-//Start the API server
-app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-});
-
-
-// io.on("connection", function(client) {
-//   client.on("register", handleRegister);
-
-//   client.on("join", handleJoin);
-
-//   client.on("leave", handleLeave);
-
-//   client.on("message", handleMessage);
-
-//   client.on("chatrooms", handleGetChatrooms);
-
-//   client.on("availableUsers", handleGetAvailableUsers);
-
-//   client.on("disconnect", function() {
-//     console.log("client disconnect...", client.id);
-//     handleDisconnect();
-//   });
-
-//   client.on("error", function(err) {
-//     console.log("received error from client:", client.id);
-//     console.log(err);
-//   });
-// });
 
 
 
