@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var expressValidator = require('express-validator');
+var exphbs = require('express-handlebars');
 var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('passport');
@@ -26,6 +27,10 @@ app.use(express.static("client/build"));
 // Add routes, both API and view
 app.use(routes);
 
+// routes for handlebars
+var users = require("./routes/users");
+app.use('/users', users);
+
 // Connect to the Mongo DB
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/sport-team-scheduler"
@@ -36,6 +41,14 @@ io.on('connection, SocketManager');
 server.listen(PORT, () => {
   console.log("Connected to port:" + PORT);
 });
+// handebars engine
+app.set('views', path.join(__dirname, 'views'));
+app.engine('handlebars', exphbs({defaultLayout:'layout'}));
+app.set('view engine', 'handlebars');
+
+// routes for handlebars
+var users = require("./routes/users");
+app.use('/users', users);
 
 // express session 
 app.use(session({
@@ -75,7 +88,6 @@ app.use(function(req, res, next){
 	res.locals.error = req.flash('error');
 	next();
 });
-
 
 //Start the API server
 app.listen(PORT, function() {

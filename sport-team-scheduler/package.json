@@ -25,8 +25,10 @@
         "connect-flash": "^0.1.1",
         "cookie-parser": "^1.4.3",
         "express": "^4.16.3",
+        "express-handlebars": "^3.0.0",
         "express-messages": "^1.0.1",
         "express-session": "^1.15.6",
+        "express-stormpath": "^4.0.0",
         "express-validator": "^5.1.2",
         "mongoose": "^5.0.12",
         "passport": "^0.4.0",
@@ -34,15 +36,6 @@
         "passport-local": "^1.0.0",
         "react-redux": "^5.0.7",
         "react-router-dom": "^4.2.2",
-<<<<<<< HEAD
-        "socket-io": "^1.0.0",
         "socket.io": "^2.1.0"
     }
 }
-=======
-        "socket-io": "^1.0.0"
-
-    }
-}
-
->>>>>>> d4c7605d4f4e8110caddaee10de56c3656c0e4cc
