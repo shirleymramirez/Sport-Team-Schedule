@@ -35,7 +35,7 @@ const Login = () =>(
 			<TextField label="UserName" />
 	      </Typography>
 	      <Typography use="body1" tag="div" theme="text-secondary-on-background">
-		<TextField label="PassWord" />
+		<TextField label="Password" />
 	      </Typography>
 	    </div>
 	  </CardPrimaryAction>
@@ -44,7 +44,7 @@ const Login = () =>(
 	      <CardAction>Login</CardAction>
 	      <Typography>Don't have an account...
 	      	<span>
-	      	<CardAction className={window.location.pathname === "/login/signin" ? "active" : ""}><Link className="Link" to="/login/signin">log in</Link></CardAction>
+	      	<CardAction className={window.location.pathname === "/login/signin" ? "active" : ""}><Link className="Link" to="/login/signin">Sign up</Link></CardAction>
 			</span>
 		   </Typography>
 	    </CardActionButtons>
