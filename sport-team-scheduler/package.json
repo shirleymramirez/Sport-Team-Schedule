@@ -20,6 +20,7 @@
         "nodemon": "^1.17.3"
     },
     "dependencies": {
+        "axios": "^0.18.0",
         "bcryptjs": "^2.4.3",
         "body-parser": "^1.18.2",
         "express": "^4.16.3",
@@ -31,13 +32,7 @@
         "passport-local": "^1.0.0",
         "react-redux": "^5.0.7",
         "react-router-dom": "^4.2.2",
-        "socket-io": "^1.0.0"
-<<<<<<< HEAD
+        "redux": "^3.7.2",
+        "socket.io": "^2.1.0"
     }
 }
-=======
-
-    }
-}
-
->>>>>>> 6060cfaf4f3c61709d7fdf06df74c6f01a05a5b6
