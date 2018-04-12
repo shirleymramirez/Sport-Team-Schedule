@@ -7,6 +7,7 @@ import Signin from "./pages/Signin"
 import Roster from "./pages/Roster";
 import Schedule from "./pages/Schedule";
 import CoachView from "./pages/CoachView";
+import ParentsView from "./pages/parentsView";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import "./index.css";
@@ -24,6 +25,7 @@ const App = () =>
         <Route exact path='/login/signin' component={Signin} />
         <Route exact path="/schedule" component={Schedule} />
         <Route exact path="/coach" component={CoachView} />
+        <Route exact path="/parent" component={ParentsView} />
         <Route component={Home} />
       </Switch>
       <Footer />
