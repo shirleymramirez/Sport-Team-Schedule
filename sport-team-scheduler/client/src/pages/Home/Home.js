@@ -1,6 +1,5 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-
 import { Button, ButtonIcon } from 'rmwc/Button';
 import { Grid, GridCell } from 'rmwc/Grid';
 import { Typography } from 'rmwc/Typography';

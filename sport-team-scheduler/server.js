@@ -10,8 +10,8 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 const mongoose = require("mongoose");
 const routes = require("./routes/");
+const SocketManager = require("./socketmanager/SocketManager");
 const app = express();
-const path = require("path");
 
 const PORT = process.env.PORT || 3001;
 
@@ -41,11 +41,8 @@ var db = mongoose.connection;
 // Socket.io set-up
 const server = require("http").Server(app);
 const io = module.exports.io = require("socket.io")(server);
+io.on("connection", SocketManager);
 
-io.on('connection, SocketManager');
-server.listen(PORT, () => {
-  console.log("Connected to port:" + PORT);
-});
 // handebars engine
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({defaultLayout:'layout'}));
@@ -95,29 +92,9 @@ app.use(function(req, res, next){
 });
 
 //Start the API server
-app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-});
-
-
-// io.on("connection", function(client) {
-//   client.on("register", handleRegister);
-
-//   client.on("join", handleJoin);
-
-//   client.on("leave", handleLeave);
-
-//   client.on("message", handleMessage);
-
-const SocketManager = require("./socketmanager/SocketManager");
-
-io.on("connection", SocketManager)
-  console.log("A user connected");
-
 server.listen(PORT, () => {
   console.log("Connected to port:" + PORT);
 });
-
 
 
 
