@@ -6,7 +6,7 @@ const Schedule = () => (
 
 	<form>
             
-    <button id="add-schedule" type="submit" className={window.location.pathname === "/schedule" ? "active" : ""}><Link className="schedule" to="/schedule">Create Schedule</Link></button>
+    <button id="add-schedule" type="submit" className={window.location.pathname === "/createschedule" ? "active" : ""}><Link className="createschedule" to="/createschedule">Create Schedule</Link></button>
 
 
  	</form>

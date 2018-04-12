@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Signin from "./pages/Signin"
 import Roster from "./pages/Roster";
 import Schedule from "./pages/Schedule";
+import CreateSchedule from "./pages/CreateSchedule";
 import CoachView from "./pages/CoachView";
 import ParentsView from "./pages/parentsView";
 import Nav from "./components/Nav";
@@ -24,6 +25,7 @@ const App = () =>
         <Route exact path='/login' component={Login} />
         <Route exact path='/login/signin' component={Signin} />
         <Route exact path="/schedule" component={Schedule} />
+        <Route exact path="/createschedule" component={CreateSchedule} />
         <Route exact path="/coach" component={CoachView} />
         <Route exact path="/parent" component={ParentsView} />
         <Route component={Home} />
