@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from 'react-router-dom';
 
 // allows for text input use 
-import { TextField, TextFieldIcon, TextFieldHelperText } from 'rmwc/TextField';
+import { TextField } from 'rmwc/TextField';
 // allows for card use 
 import {
   Card,
@@ -10,8 +10,7 @@ import {
   CardMedia,
   CardAction,
   CardActions,
-  CardActionButtons,
-  CardActionIcons
+  CardActionButtons
 } from 'rmwc/Card';
 import { Typography } from 'rmwc/Typography';
 import { Grid, GridCell } from 'rmwc/Grid';
@@ -36,7 +35,7 @@ const Login = () =>(
 			<TextField label="UserName" />
 	      </Typography>
 	      <Typography use="body1" tag="div" theme="text-secondary-on-background">
-		<TextField label="PassWord" />
+		<TextField label="Password" />
 	      </Typography>
 	    </div>
 	  </CardPrimaryAction>

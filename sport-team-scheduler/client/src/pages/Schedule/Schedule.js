@@ -20,7 +20,9 @@ import { Grid, GridCell } from 'rmwc/Grid';
 const Schedule = () =>(
 <div>
 <center>
- 	<ViewSchedule />
+
+  <ViewSchedule />
+
  </center>
 
 </div>
@@ -28,4 +30,5 @@ const Schedule = () =>(
 );
 
 export default Schedule;
+
 
