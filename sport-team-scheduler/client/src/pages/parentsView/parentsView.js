@@ -1,9 +1,9 @@
 import React from "react";
-import Roster from "./../../components/Roster";
-import Schedule from "./../../components/Schedule";
+// import Roster from "./../../components/Roster";
+// import Schedule from "./../../components/Schedule";
 import Weather from "./../../components/weatherApi";
 
-const paerentsView = () =>
+const parentsView = () =>
   <div className="container">
   	<div className="col-lg-3" />
   	<div className="col-lg-6">
@@ -12,4 +12,4 @@ const paerentsView = () =>
   	<div className="col-lg-3" />
   </div>;
 
-export default paerentsView;
+export default parentsView;
