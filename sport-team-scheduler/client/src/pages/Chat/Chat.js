@@ -3,10 +3,9 @@ import "./Chat.css";
 import SideBar from "../../components/SideBar";
 import { Messages } from "../../components/Messages";
 
-
 const Chat = () =>
-  <div className="chatBoard">
+    <div className="chatBoard">
     <SideBar />
     <Messages />
   </div>;
-export default Chat;  
+export default Chat; 

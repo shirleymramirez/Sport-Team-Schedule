@@ -20,6 +20,7 @@
         "nodemon": "^1.17.3"
     },
     "dependencies": {
+        "axios": "^0.18.0",
         "bcryptjs": "^2.4.3",
         "body-parser": "^1.18.2",
         "connect-flash": "^0.1.1",
@@ -37,13 +38,9 @@
         "react-forecast": "^0.0.7",
         "react-redux": "^5.0.7",
         "react-router-dom": "^4.2.2",
-<<<<<<< HEAD
-        "react-weather": "^0.1.3",
-        "socket.io": "^2.1.0"
+        "socket.io": "^2.1.0",
+        "redux": "^3.7.2",
+        "react-weather": "^0.1.3"
+
     }
 }
-=======
-        "socket-io": "^1.0.0"
-    }
-}    
->>>>>>> 464597d2311bf9c328be941bdb05c715ce9c3e4c
