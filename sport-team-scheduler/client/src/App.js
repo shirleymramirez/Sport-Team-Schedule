@@ -8,6 +8,8 @@ import Roster from "./pages/Roster";
 import CoachView from "./pages/CoachView";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+// import Weather from "./components/Weather"
+import MyMapComponent from "./components/Map"
 import "./index.css";
 
 
@@ -23,6 +25,7 @@ const App = () =>
         <Route exact path="/roster" component={Roster} />
         <Route exact path="/login/signin" component={Signin} />
         <Route exact path="/coach" component={CoachView} />
+        <Route exact path="/weather" component={MyMapComponent} />
         <Route component={Home} />
       </Switch>
       <Footer />
