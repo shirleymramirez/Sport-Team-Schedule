@@ -1,27 +1,25 @@
 import React, { Component } from "react";
 import "./Messages.css";
 import { ToolbarFixedAdjust } from "rmwc/Toolbar";
-import API from "../../utils/API";
+import ChatAPI from "../../utils/chatApi";
+import { connect } from "react-redux";
 import { List, SimpleListItem } from "rmwc/List";
 import MessageInput from "./MessageInput";
 import ChatHeader from "../../components/ChatHeader";
-import socketIOClient from "socket.io-client";
+import io from "socket.io-client";
 
-let runningId = 10;
 
 class Messages extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      user: {
-        id: 1,
-        name: 'Shirley'
-      },
       chatMessage: "",
       messages: []
     };
-    this.socket = socketIOClient("localhost:3001");
+
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+
+    this.socket = io();
 
     this.socket.on("RECEIVE_MESSAGE", function(data) {
       addMessage(data);
@@ -34,23 +32,22 @@ class Messages extends Component {
   }
 
   componentDidMount() {
-      API.getConversationsByUser(this.state.user.id)
-        .then(res => this.setSetate({chatMessage: res.data}))
-        .catch(err =>console.log(err));
-      //  this.setState({
-      // chatMessage: API.conversation.getConversation()[0].id});
+    ChatAPI.getConversation(this.props.chatId)
+      .then(res => this.setState({ messages: res.data }))
+      .catch(err => console.log(err));
   }
 
   handleKeyPress = (event) => {
     if(event.key === 'Enter'){
       const chatMessage = this.state.chatMessage;
       this.setState({ chatMessage: "" });
+      console.log(this.props);
       this.socket.emit("SEND_MESSAGE", {
-        username: this.state.username,
+        username: this.props.username,
         chatMessage,
-        id: runningId
+        id: this.props.userId,
+        //conversationId: chatId
       });
-      runningId += 1;
       event.preventDefault();
     } else {
       this.setState({ chatMessage: event.target.value });
@@ -76,4 +73,13 @@ class Messages extends Component {
       </div>;
   }
 }
-export default Messages; 
+
+const mapStateToProps = (state, ownProps) => {
+  console.log(state);
+  return {
+    username: state.user.username,
+    userId: state.user._id,
+  };
+};
+
+export default connect(mapStateToProps, {})(Messages);

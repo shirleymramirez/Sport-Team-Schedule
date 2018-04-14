@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { List, SimpleListItem } from "rmwc/List";
 import "./SideBar.css";
 import { Card } from "rmwc/Card";
-import API from "../../utils/API";
+import ChatAPI from "../../utils/chatApi";
+import { connect } from "react-redux";
 import { TextField } from 'rmwc/TextField';
 import { Button, ButtonIcon } from "rmwc/Button";
 import { Typography } from "rmwc/Typography";
@@ -12,10 +13,8 @@ class SideBar extends Component {
   constructor(props){
     super(props);
     this.state = { 
-      user: { 
-        id: 1
-      }, 
-      conversations: []
+      chatMessage: "",
+      conversations: [] 
     };  
   }
   componentDidMount() {
@@ -23,9 +22,8 @@ class SideBar extends Component {
   }
 
   loadConversation = () => {
-      // this.setState({ conversations: API.conversation.getConversations() });
-      API.getConversation(this.state.user.id)
-        .then(res => this.setState({conversation: res.data}))
+      ChatAPI.getConversationsByUser(this.props.userId)
+        .then(res => this.setState({ conversations: res.data }))
         .catch(err => console.log(err));
   };
 
@@ -52,5 +50,14 @@ class SideBar extends Component {
       </Card>;
   }
 }
-export default SideBar;
-    
+
+const mapStateToProps = (state, ownProps) => {
+  console.log(state);
+  return {
+    username: state.user.username,
+    userId: state.user._id,
+  };
+};
+
+export default connect(mapStateToProps, {})(SideBar);
+

@@ -3,11 +3,11 @@ import axios from "axios";
 export default {
   // Gets all conversation
   getConversationsByUser: function(userId) {
-    return axios.get("/api/conversations/user" + userId);
+    return axios.get("/api/conversations/user/" + userId);
   },
   // Gets the conversation with the given id
-  getConversation: function(id) {
-    return axios.get("/api/conversations/" + id);
+  getConversation: function(chatId) {
+    return axios.get("/api/conversations/" + chatId);
   },
   // Deletes the conversation with the given id
   deleteConversation: function(id) {

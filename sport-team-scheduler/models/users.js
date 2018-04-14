@@ -1,15 +1,16 @@
-var mongoose = require('mongoose');
-var bcrypt = require("bcryptjs");
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const bcrypt = require("bcryptjs");
 
-var userSchema = mongoose.Schema({
+const userSchema = new Schema({
 	name:{
 		type: String,
 		index: true
 	},
-	Kidsname:{
+	kidsname:{
 		type: String
 	},
-	number:{
+	phonenumber:{
 		type:String
 	},
 	username:{
@@ -23,14 +24,17 @@ var userSchema = mongoose.Schema({
 	}
 });
 
-var User = module.exports = mongoose.model('user', userSchema);
+const User = module.exports = mongoose.model('user', userSchema);
 
-module.exports.createUser = function(newUser, CB){
-	bcrypt.genSalt(10, function(err, salt) {
-    	bcrypt.hash(newUser.password, salt, function(err, hash) {
-        	newUser.password = hash;
-        	newUser.save(CB);
-    	});
-	});
-}
+module.exports = User;
+
+
+// module.exports.createUser = function(newUser, CB){
+// 	bcrypt.genSalt(10, function(err, salt) {
+//     	bcrypt.hash(newUser.password, salt, function(err, hash) {
+//         	newUser.password = hash;
+//         	newUser.save(CB);
+//     	});
+// 	});
+// }
 
