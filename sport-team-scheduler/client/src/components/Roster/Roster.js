@@ -6,7 +6,7 @@ const Roster = () => (
 
 	<form>
             
-    <button id="add-roster" type="submit" className={window.location.pathname === "/roster" ? "active" : ""}><Link className="btn1" to="/roster">Create Roster</Link></button>
+    <button id="add-roster" type="submit" className={window.location.pathname === "/createroster" ? "active" : ""}><Link className="btn1" to="/createroster">Create Roster</Link></button>
 
  	</form>
   

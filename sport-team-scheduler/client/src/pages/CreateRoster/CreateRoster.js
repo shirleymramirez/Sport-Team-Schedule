@@ -1,5 +1,5 @@
 import React from "react";
-import ViewSchedule from "./../../components/ViewSchedule";
+import ViewRoster from "./../../components/ViewRoster";
 // allows for text input use 
 import { TextField, TextFieldIcon, TextFieldHelperText } from 'rmwc/TextField';
 // allows for card use 
@@ -20,24 +20,21 @@ import { Grid, GridCell } from 'rmwc/Grid';
 const Schedule = () =>(
 <div>
 <Grid>
- <GridCell span="4"></GridCell>
 
- <GridCell span="4">
+ <GridCell span="6">
  	<center>
  	<Card style={{width: '21rem'}}>
 	  <CardPrimaryAction>
 	    <div style={{padding: '0 1rem 1rem 1rem'}}>
-	      <Typography use="title" tag="h2"><center>Add to Schedule</center></Typography>
+	      <Typography use="title" tag="h2"><center>Add to the Roster</center></Typography>
 	      <Typography
 	        use="subheading1"
 	        tag="h3"
 	        theme="text-secondary-on-background"
 	        style={{marginTop: '-1rem'}}
 	      > <center>
-			<TextField label="location" /> <div> </div>
-			<TextField label="Date"/> <div> </div>
-			<TextField label="Time"/> <div> </div>
-			<TextField label="Assigned Snack"/> 
+			<TextField label="Team" /> <div> </div>
+			<TextField label="Player's Name"/> <div> </div>
 			<div className="submit">
 				<button className="btn" >Submit</button>
 			</div>	
@@ -51,11 +48,14 @@ const Schedule = () =>(
 	</center>
  </GridCell>
 
- <GridCell span="4"></GridCell>
+ <GridCell span="6">
+ 	<center>
+ 		<ViewRoster />
+ 	</center>
+ </GridCell>
 </Grid>
 <br />
 
-<ViewSchedule />
 </div>
 
 );

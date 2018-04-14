@@ -8,6 +8,7 @@ import Signup from "./pages/Signup"
 import Roster from "./pages/Roster";
 import Schedule from "./pages/Schedule";
 import CreateSchedule from "./pages/CreateSchedule";
+import CreateRoster from "./pages/CreateRoster";
 import CoachView from "./pages/CoachView";
 import ParentsView from "./pages/parentsView";
 import Nav from "./components/Nav";
@@ -29,6 +30,7 @@ const App = () =>
           <Route exact path="/login/signup" component={Signup} />
           <Route exact path="/schedule" component={Schedule} />
           <Route exact path="/createschedule" component={CreateSchedule} />
+          <Route exact path="/createroster" component={CreateRoster} />
           <Route exact path="/coach" component={CoachView} />
           <Route exact path="/parent" component={ParentsView} />
           <Route component={Home} />
