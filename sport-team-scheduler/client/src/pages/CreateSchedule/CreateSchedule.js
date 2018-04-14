@@ -20,10 +20,10 @@ import { Grid, GridCell } from 'rmwc/Grid';
 const Schedule = () =>(
 <div>
 <Grid>
- <GridCell span="4">
- </GridCell>
+ <GridCell span="4"></GridCell>
 
  <GridCell span="4">
+ 	<center>
  	<Card style={{width: '21rem'}}>
 	  <CardPrimaryAction>
 	    <div style={{padding: '0 1rem 1rem 1rem'}}>
@@ -38,6 +38,9 @@ const Schedule = () =>(
 			<TextField label="Date"/> <div> </div>
 			<TextField label="Time"/> <div> </div>
 			<TextField label="Assigned Snack"/> 
+			<div className="submit">
+				<button className="btn" >Submit</button>
+			</div>	
 			</center>
 	      </Typography>
 	    </div>
@@ -45,11 +48,14 @@ const Schedule = () =>(
 	  <CardActions>
 	  </CardActions>
 	</Card>
+	</center>
  </GridCell>
- 	<ViewSchedule />
+
  <GridCell span="4"></GridCell>
 </Grid>
 <br />
+
+<ViewSchedule />
 </div>
 
 );
