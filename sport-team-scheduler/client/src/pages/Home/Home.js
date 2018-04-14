@@ -13,7 +13,7 @@ const Home = () =>
 
   <div className="main-container">
     <div className="jumbotron">
-      <center><h1>Sports Team Scheduler!</h1></center>
+      <center><h1>Sports Team Scheduler</h1></center>
       	<img className="soccerBall" src={soccerBall} width="100%" height="100%" />
 
     </div>
