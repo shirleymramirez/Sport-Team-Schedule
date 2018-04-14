@@ -1,5 +1,6 @@
 import React from "react";
 import './roster.css';
+import ViewRoster from "./../../components/ViewRoster";
 import { Grid, GridCell } from 'rmwc/Grid';
 import { Typography } from 'rmwc/Typography';
 import { Button, ButtonIcon } from 'rmwc/Button';
@@ -8,54 +9,46 @@ import {
   Card,
   CardPrimaryAction,
   CardMedia,
-  CardMediaContent,
   CardAction,
-  CardActionIcons,
-  CardActions
+  CardMediaContent,
+  CardActions,
+  CardActionButtons,
+  CardActionIcons
 } from 'rmwc/Card';
 
 const Roster = () => (
 <div> 
 	<Grid>
 
-	  <GridCell span="4">
-			<center>
-				<div> <TextField className='playerName' label="Player's Name" /></div>
-				<div><TextField className='teamName' label="Assigned Team" /></div>
-				 <div><Button stroked className="submitBtn" >Add to the Roster</Button></div>
+	  <GridCell span="5">
+		 	<Card style={{width: '21rem'}}>
+	  <CardPrimaryAction>
+	    <div style={{padding: '0 1rem 1rem 1rem'}}>
+	      <Typography use="title" tag="h2"><center>Add to Roster</center></Typography>
+	      <Typography
+	        use="subheading1"
+	        tag="h3"
+	        theme="text-secondary-on-background"
+	        style={{marginTop: '-1rem'}}
+	      > <center>
+			<TextField label="Player's Name"/> <div> </div>
+			<TextField label="Player's Age"/> <div> </div>
+			<TextField label="Team" /> <div> </div>
 			</center>
+	      </Typography>
+	    </div>
+	  </CardPrimaryAction>
+	  <CardActions>
+	  </CardActions>
+	</Card>
 	  </GridCell>
 
-	<GridCell span="4" className="rosterForm">
-		<Card style={{width: '30rem'}} className="rosterView">
-  		<CardPrimaryAction>
-    	<CardMedia square style={{backgroundImage: 'url()'}}>
-      	<CardMediaContent>
-        	<Typography
-	          use="subheading2"
-	          tag="div"
-	          theme="text-primary-on-dark"
-	          style={{
-	            padding: '0.5rem 1rem',
-	            backgroundImage: 'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 100%)',
-	            backgroundColor: 'red',
-	            bottom: '0',
-	            left: '0',
-	            right: '0',
-	          }}
-       		 >
-          		<center><h1>Current Roster </h1></center>
-        	</Typography>
-      	</CardMediaContent>
-    	</CardMedia>
-  		</CardPrimaryAction>
-		</Card>
-	</GridCell>
+		<GridCell span="5">
+			<ViewRoster />
+		</GridCell>
 
-	<GridCell span="4"></GridCell>
+	<GridCell span="2"></GridCell>
 	</Grid>
 </div>
 )
 export default Roster;
-
-
