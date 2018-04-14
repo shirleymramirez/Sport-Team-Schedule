@@ -37,13 +37,13 @@ class SignupForm extends Component {
 
 	render(){
 		return <div className="container">
-        <div className="col-lg-4" />
-        <div className="col-lg-3">
+        <div className="col-lg-3" />
+        <div className="col-lg-6">
           <div class="panel panel-default">
             <div className="panel-body">
               <h3 className="text-center">Sign Up Here</h3>
               <form className="text-center">
-                <div className="input-group">
+                <center><div className="input-group">
                   <label>Username:</label>
                   <input type="text" placeholder="Username" value={this.state.username} name="username" onChange={e => this.change(e)} />
                 </div>
@@ -85,11 +85,12 @@ class SignupForm extends Component {
                     </Link>
                   </button>
                 </div>
+                </center>
               </form>
             </div>
           </div>
         </div>
-        <div className="col-lg-4" />
+        <div className="col-lg-3" />
       </div>;}
 }
 export default SignupForm;

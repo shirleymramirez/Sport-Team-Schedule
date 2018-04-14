@@ -54,7 +54,8 @@ class Login extends Component {
         <Grid>
           <GridCell span="4" />
           <GridCell span="4">
-            <Card style={{ width: "21rem" }}>
+          <center>
+            <Card style={{ width: "35rem" }}>
               <CardPrimaryAction>
                 <CardMedia
                   sixteenByNine
@@ -64,41 +65,39 @@ class Login extends Component {
                   }}
                 />
                 <div style={{ padding: "0 1rem 1rem 1rem" }}>
-                  <Typography use="title" tag="h2">
-                    Login To Sport-Team-Schedule
+                  <Typography use="title">
+                    <h3>Login</h3>
                   </Typography>
                   <Typography
                     use="subheading1"
-                    tag="h3"
                     theme="text-secondary-on-background"
                     style={{ marginTop: "-1rem" }}
                   >
-                    <TextField
-                      label="UserName"
+                    <h5><TextField
+                      label="Username"
                       value={this.state.username}
                       onChange={this.userNameChangehandler}
-                    />
+                    /></h5>
                   </Typography>
                   <Typography
                     use="body1"
                     tag="div"
                     theme="text-secondary-on-background"
                   >
-                    <TextField
-                      label="PassWord"
+                    <h5><TextField
+                      label="Password"
                       value={this.state.password}
                       onChange={this.userPasswordChangehandler}
-                    />
+                    /></h5>
                   </Typography>
                 </div>
               </CardPrimaryAction>
               <CardActions>
                 <CardActionButtons>
                   <CardAction onClick={this.onClickHandler}>
-                    <Link to="/parent">Login</Link>
+                    <Link to="/parent"><h4>Login</h4></Link>
                   </CardAction>
                   <Typography>
-                    Don't have an account...
                     <span>
                       <CardAction
                         className={
@@ -108,7 +107,7 @@ class Login extends Component {
                         }
                       >
                         <Link className="Link" to="/login/signup">
-                          Sign up
+                          <h4>Sign up</h4>
                         </Link>
                       </CardAction>
                     </span>
@@ -116,6 +115,7 @@ class Login extends Component {
                 </CardActionButtons>
               </CardActions>
             </Card>
+            </center>
           </GridCell>
           <GridCell span="4" />
         </Grid>
