@@ -12,13 +12,13 @@ const Home = () =>
 
   <div className="main-container">
     <div className="jumbotron">
-      <center><h1>Sports Team Scheduler!</h1></center>
+      <center><h1>Sports Team Scheduler</h1></center>
       	<img className="soccerBall" src={soccerBall} width="100%" height="100%" />
 
     </div>
   </div>
 
-<Typography use="title" tag="h2"><center>I am a...</center></Typography>
+<Typography use="title" ><center><h3>I am a...</h3></center></Typography>
 
 	<Grid>
 	  <GridCell span="4"></GridCell>
