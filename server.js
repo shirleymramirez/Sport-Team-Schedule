@@ -34,9 +34,12 @@ app.use('/users', users);
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/sport-team-scheduler"
+  process.env.MONGODB_URI ||
+    "mongodb://localhost/sport-team-scheduler" ||
+    "mongodb://mongodb://<dbuser>:<dbpassword>@ds249757.mlab.com:49757/heroku_3kvsrs9m"
 );
-var db = mongoose.connection;
+//<dbuser>:<dbpassword>@ds249757.mlab.com:49757/heroku_3kvsrs9m
+mongodb: var db = mongoose.connection;
 
 SocketManager(app, PORT);
 
