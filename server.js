@@ -25,9 +25,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "build")));
 
 app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
-
 
 
 // Add routes, both API and view
@@ -43,8 +42,7 @@ app.use('/users', users);
 // Connect to the Mongo DB
 mongoose.connect(
   process.env.MONGODB_URI ||
-    "mongodb://localhost/sport-team-scheduler" ||
-    "mongodb://mongodb://<dbuser>:<dbpassword>@ds249757.mlab.com:49757/heroku_3kvsrs9m"
+    "mongodb://localhost/sport-team-scheduler"
 );
 mongodb: var db = mongoose.connection;
 
