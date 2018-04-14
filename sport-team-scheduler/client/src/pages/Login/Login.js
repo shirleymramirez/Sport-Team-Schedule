@@ -1,7 +1,8 @@
 import React, {Component} from "react";
-import {Link} from 'react-router-dom';
-// import {connect} from 'react-redux';
-
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import UserAPI from "../../utils/userApi";
+import { bindActionCreators } from "redux";
 // allows for text input use 
 import { TextField } from 'rmwc/TextField';
 // allows for card use 
@@ -15,18 +16,38 @@ import {
 } from 'rmwc/Card';
 import { Typography } from 'rmwc/Typography';
 import { Grid, GridCell } from 'rmwc/Grid';
+import * as loginActionCreators from "./loginActionCreators";
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-			username:''
-		};
+      username: "",
+      password: ""
+    };
+
     this.userNameChangehandler = this.userNameChangehandler.bind(this);
+    this.userPasswordChangehandler = this.userPasswordChangehandler.bind(this);
+    this.onClickHandler = this.onClickHandler.bind(this);
   }
+
+  onClickHandler(e) {
+    UserAPI.login({
+      username: this.state.username,
+      password: this.state.password
+    }).then(response => {
+      this.props.actions.updateUser(response.data[0]);
+    });
+  };
+
   userNameChangehandler(e) {
-		this.setState({username: e.target.value})
-	}
+    this.setState({ username: e.target.value});
+  }
+
+  userPasswordChangehandler(e) {
+    this.setState({ password: e.target.value})
+  };
+
   render() {
     return (
       <div>
@@ -54,7 +75,7 @@ class Login extends Component {
                   >
                     <TextField
                       label="UserName"
-											value={this.state.username}
+                      value={this.state.username}
                       onChange={this.userNameChangehandler}
                     />
                   </Typography>
@@ -63,24 +84,30 @@ class Login extends Component {
                     tag="div"
                     theme="text-secondary-on-background"
                   >
-                    <TextField label="PassWord" />
+                    <TextField
+                      label="PassWord"
+                      value={this.state.password}
+                      onChange={this.userPasswordChangehandler}
+                    />
                   </Typography>
                 </div>
               </CardPrimaryAction>
               <CardActions>
                 <CardActionButtons>
-                  <CardAction>Login</CardAction>
+                  <CardAction onClick={this.onClickHandler}>
+                    <Link to="/parent">Login</Link>
+                  </CardAction>
                   <Typography>
                     Don't have an account...
                     <span>
                       <CardAction
                         className={
-                          window.location.pathname === "/login/signin"
+                          window.location.pathname === "/login/signup"
                             ? "active"
                             : ""
                         }
                       >
-                        <Link className="Link" to="/login/signin">
+                        <Link className="Link" to="/login/signup">
                           Sign up
                         </Link>
                       </CardAction>
@@ -97,4 +124,13 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = (state, ownProps) => {
+  return {
+
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return { actions: bindActionCreators(loginActionCreators, dispatch) };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
+

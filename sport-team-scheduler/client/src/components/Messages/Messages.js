@@ -1,79 +1,99 @@
 import React, { Component } from "react";
 import "./Messages.css";
 import { ToolbarFixedAdjust } from "rmwc/Toolbar";
-import API from "../../utils/API";
+import ChatAPI from "../../utils/chatApi";
+import UserAPI from "../../utils/userApi";
+import { connect } from "react-redux";
 import { List, SimpleListItem } from "rmwc/List";
 import MessageInput from "./MessageInput";
 import ChatHeader from "../../components/ChatHeader";
-import socketIOClient from "socket.io-client";
-
-let runningId = 10;
 
 class Messages extends Component {
   constructor(props) {
     super(props);
+    this.state = { pendingMessage: "", messages: [], users: [] };
+    this.handleOnChange = this.handleOnChange.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.receiveMessageHandler = this.receiveMessageHandler.bind(this);
 
-    this.state = {
-      user: {
-        id: 1,
-        name: 'Shirley'
-      },
-      chatMessage: "",
-      messages: []
-    };
-    this.socket = socketIOClient("localhost:3001");
+    props.socket.on("RECEIVE_MESSAGE", this.receiveMessageHandler);
+    props.socket.emit("JOIN", { id: props.userId, name: props.fullname });
+  }
 
-    this.socket.on("RECEIVE_MESSAGE", function(data) {
-      addMessage(data);
-    });
-
-    const addMessage = data => {
-      console.log(data);
-      this.setState({ messages: [...this.state.messages, data] });
-    };
+  receiveMessageHandler(data) {
+    this.setState({ messages: [...this.state.messages, data] });
   }
 
   componentDidMount() {
-      API.getConversationsByUser(this.state.user.id)
-        .then(res => this.setSetate({chatMessage: res.data}))
-        .catch(err =>console.log(err));
-      //  this.setState({
-      // chatMessage: API.conversation.getConversation()[0].id});
+    var self = this;
+    UserAPI.getUsers().then(res => {
+      self.setState({
+        users: Object.assign(
+          {},
+          ...res.data.map(user => ({ [user._id]: user }))
+        )
+      });
+      var newSelf = self;
+      ChatAPI.getMessages()
+        .then(res => {
+         newSelf.setState({
+            messages: res.data.map(message => {
+              message.fullname = newSelf.state.users[message.author].name;
+              return message;
+            })
+          });
+        })
+        .catch(err => console.log(err));
+    });
   }
 
-  handleKeyPress = (event) => {
-    if(event.key === 'Enter'){
-      const chatMessage = this.state.chatMessage;
-      this.setState({ chatMessage: "" });
-      this.socket.emit("SEND_MESSAGE", {
-        username: this.state.username,
-        chatMessage,
-        id: runningId
-      });
-      runningId += 1;
-      event.preventDefault();
-    } else {
-      this.setState({ chatMessage: event.target.value });
-    }
+  handleOnChange = event => {
+    this.setState({ pendingMessage: event.target.value });
   }
+
+  handleKeyPress = event => {
+    if (event.key === "Enter") {
+      this.props.socket.emit("SEND_MESSAGE", {
+        fullname: this.props.fullname,
+        body: this.state.pendingMessage,
+        userId: this.props.userId
+      });
+      this.setState({ pendingMessage: "" });
+      event.preventDefault();
+    }
+  };
 
   render() {
-    return <div className="chat-messages">
+    return (
+      <div className="chat-messages">
         <ChatHeader />
         <ToolbarFixedAdjust className="messages-content-view">
           <List twoLine className="messages-content-view-color">
-            {this.state.messages.length > 0 && this.state.messages.map(
-                message =>
-                  <SimpleListItem
-                    key={message.id}
-                    text={message.username}
-                    secondaryText={message.chatMessage}
-                  />
+            {this.state.messages.length > 0 &&
+              this.state.messages.map(message =>
+                <SimpleListItem
+                  key={message.id}
+                  text={message.fullname}
+                  secondaryText={message.body}
+                />
               )}
           </List>
         </ToolbarFixedAdjust>
-        <MessageInput value={this.state.chatMessage} onKeyPress={this.handleKeyPress} />
-      </div>;
+        <MessageInput
+          value={this.state.pendingMessage}
+          onChange={this.handleOnChange}
+          onKeyPress={this.handleKeyPress}
+        />
+      </div>
+    );
   }
 }
-export default Messages; 
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    fullname: state.user.name,
+    userId: state.user._id,
+  };
+};
+
+export default connect(mapStateToProps, {})(Messages);

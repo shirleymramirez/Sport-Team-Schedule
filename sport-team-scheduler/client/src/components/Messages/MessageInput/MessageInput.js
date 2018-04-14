@@ -6,7 +6,7 @@ const MessageInput = props => {
   return <div className="message-input">
       <TextField className="chat-messagesInput" 
         textarea fullwidth label="Type a message..." 
-        rows="2" value={props.chatMessage}
+        rows="2" value={props.value}
         onChange={props.onChange}
         onKeyPress={props.onKeyPress} />
     </div>;

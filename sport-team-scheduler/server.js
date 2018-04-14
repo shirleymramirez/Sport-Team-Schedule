@@ -29,7 +29,7 @@ app.use(routes);
 mongoose.Promise = global.Promise;
 
 // routes for handlebars
-var users = require("./routes/users");
+var users = require("./routes/api/users");
 app.use('/users', users);
 
 // Connect to the Mongo DB
@@ -38,10 +38,7 @@ mongoose.connect(
 );
 var db = mongoose.connection;
 
-// Socket.io set-up
-const server = require("http").Server(app);
-const io = module.exports.io = require("socket.io")(server);
-io.on("connection", SocketManager);
+SocketManager(app, PORT);
 
 // handebars engine
 app.set('views', path.join(__dirname, 'views'));
@@ -49,7 +46,7 @@ app.engine('handlebars', exphbs({defaultLayout:'layout'}));
 app.set('view engine', 'handlebars');
 
 // routes for handlebars
-var users = require("./routes/users");
+var users = require("./routes/api/users");
 app.use('/users', users);
 
 // express session 
@@ -91,10 +88,6 @@ app.use(function(req, res, next){
 	next();
 });
 
-//Start the API server
-server.listen(PORT, () => {
-  console.log("Connected to port:" + PORT);
-});
 
 
 
