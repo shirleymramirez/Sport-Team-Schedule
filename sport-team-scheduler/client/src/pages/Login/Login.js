@@ -36,7 +36,6 @@ class Login extends Component {
       username: this.state.username,
       password: this.state.password
     }).then(response => {
-      console.log(response.data[0]);
       this.props.actions.updateUser(response.data[0]);
     });
   };
@@ -126,7 +125,6 @@ class Login extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state);
   return {
 
   };

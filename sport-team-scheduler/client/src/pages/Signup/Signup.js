@@ -18,7 +18,6 @@ class SignupPage extends Component {
   }
 
   onSubmit = fields => {
-    console.log("fields =", fields);
     UserAPI.signup(fields)
       .then(response => {
       this.props.actions.updateUser(response.data);
@@ -39,7 +38,6 @@ class SignupPage extends Component {
 };
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(state);
     return {};
   }
 

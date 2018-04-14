@@ -38,10 +38,7 @@ mongoose.connect(
 );
 var db = mongoose.connection;
 
-// Socket.io set-up
-const server = require("http").Server(app);
-const io = module.exports.io = require("socket.io")(server);
-io.on("connection", SocketManager);
+SocketManager(app, PORT);
 
 // handebars engine
 app.set('views', path.join(__dirname, 'views'));
@@ -91,10 +88,6 @@ app.use(function(req, res, next){
 	next();
 });
 
-//Start the API server
-server.listen(PORT, () => {
-  console.log("Connected to port:" + PORT);
-});
 
 
 

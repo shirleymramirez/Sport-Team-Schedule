@@ -10,6 +10,9 @@ export default {
   getUser: function(id) {
     return axios.get("/api/users/" + id);
   },
+  getUsers: function() {
+    return axios.get("/api/users");
+  },
   saveUsers: function(userData) {
     return axios.post("api/users/", {
       username: userData.username,

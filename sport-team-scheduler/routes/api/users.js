@@ -8,4 +8,7 @@ router.route("/signup")
 router.route("/login")
 	.post(usersController.findbyUserName);
 
+router.route("/users")
+	.get(usersController.findAll);
+
 module.exports = router;
