@@ -1,12 +1,8 @@
-const mongoose = require("mongoose"),
-  Schema = mongoose.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const MessageSchema = new Schema(
   {
-    conversationId: {
-      type: Schema.Types.ObjectId,
-      required: true
-    },
     body: {
       type: String,
       required: true
@@ -21,4 +17,6 @@ const MessageSchema = new Schema(
   }
 );
 
-module.exports = mongoose.model("Message", MessageSchema);
+const Message = mongoose.model("Message", MessageSchema);
+
+module.exports = Message;

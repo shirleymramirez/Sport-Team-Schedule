@@ -1,6 +1,5 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-
 import { Button, ButtonIcon } from 'rmwc/Button';
 import { Grid, GridCell } from 'rmwc/Grid';
 import { Typography } from 'rmwc/Typography';
@@ -25,7 +24,7 @@ const Home = () =>
 	  <GridCell span="4"></GridCell>
 	  <GridCell span="4">
 	  <center>
-	  	<Button stroked id="btn1"className={window.location.pathname === "/login" ? "active" : ""}><Link className="btn1" to="/login">Parent</Link></Button>
+	  	<Button stroked id="btn1" className={window.location.pathname === "/login" ? "active" : ""}><Link className="btn1" to="/login">Parent</Link></Button>
 	  	<Button stroked id="btn2" className={window.location.pathname === "/login" ? "active" : ""}><Link className="btn2" to="/login">Coach</Link></Button>
 	  </center>
 	  </GridCell>

@@ -9,12 +9,9 @@ var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 const mongoose = require("mongoose");
-const routes = require("./routes");
+const routes = require("./routes/");
+const SocketManager = require("./socketmanager/SocketManager");
 const app = express();
-console.log(process.env.PORT);
-
-const server = require("http").createServer();
-const io = (module.exports.io = require("socket.io")(server));
 
 const PORT = process.env.PORT || 3001;
 
@@ -24,11 +21,15 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 // Serve up static assets
 app.use(express.static("client/build"));
+
 // Add routes, both API and view
 app.use(routes);
 
+// Set up promises with mongoose
+mongoose.Promise = global.Promise;
+
 // routes for handlebars
-var users = require("./routes/users");
+var users = require("./routes/api/users");
 app.use('/users', users);
 
 // Connect to the Mongo DB
@@ -37,17 +38,15 @@ mongoose.connect(
 );
 var db = mongoose.connection;
 
-io.on('connection, SocketManager');
-server.listen(PORT, () => {
-  console.log("Connected to port:" + PORT);
-});
+SocketManager(app, PORT);
+
 // handebars engine
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({defaultLayout:'layout'}));
 app.set('view engine', 'handlebars');
 
 // routes for handlebars
-var users = require("./routes/users");
+var users = require("./routes/api/users");
 app.use('/users', users);
 
 // express session 
@@ -88,36 +87,6 @@ app.use(function(req, res, next){
 	res.locals.error = req.flash('error');
 	next();
 });
-
-//Start the API server
-app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-});
-
-
-// io.on("connection", function(client) {
-//   client.on("register", handleRegister);
-
-//   client.on("join", handleJoin);
-
-//   client.on("leave", handleLeave);
-
-//   client.on("message", handleMessage);
-
-//   client.on("chatrooms", handleGetChatrooms);
-
-//   client.on("availableUsers", handleGetAvailableUsers);
-
-//   client.on("disconnect", function() {
-//     console.log("client disconnect...", client.id);
-//     handleDisconnect();
-//   });
-
-//   client.on("error", function(err) {
-//     console.log("received error from client:", client.id);
-//     console.log(err);
-//   });
-// });
 
 
 

@@ -1,9 +1,15 @@
 import React from "react";
 import ViewRoster from "./../../components/ViewRoster";
+
 import { Grid, GridCell } from 'rmwc/Grid';
 import { Typography } from 'rmwc/Typography';
 import { Button, ButtonIcon } from 'rmwc/Button';
 import { TextField, TextFieldIcon, TextFieldHelperText } from 'rmwc/TextField';
+
+// allows for text input use 
+import { TextField, TextFieldIcon, TextFieldHelperText } from 'rmwc/TextField';
+// allows for card use 
+
 import {
   Card,
   CardPrimaryAction,
@@ -14,6 +20,7 @@ import {
   CardActionButtons,
   CardActionIcons
 } from 'rmwc/Card';
+
 
 const CreateRoster = () => (
 <div> 
