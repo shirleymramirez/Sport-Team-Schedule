@@ -17,6 +17,7 @@ import store from "./store";
 import "./index.css";
 
 const App = () =>
+
   <Provider store={store}>
     <Router>
       <div>
@@ -39,5 +40,6 @@ const App = () =>
       </div>
     </Router>
   </Provider>;
+
 
 export default App;
