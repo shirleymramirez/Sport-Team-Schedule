@@ -1,0 +1,79 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add express-stormpath
+
+PATH: 
+  C:\Users\bdunc\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\bdunc\bin;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon;C:\Program Files\nodejs;C:\Program Files (x86)\Yarn\bin;C:\Program Files\Java\jdk1.8.0_161\bin;C:\Program Files\Git\cmd;C:\Program Files\MongoDB\Server\3.4\bin;C:\Users\bdunc\AppData\Local\Microsoft\WindowsApps;C:\Users\bdunc\AppData\Roaming\npm;C:\Users\bdunc\AppData\Local\Yarn\bin;C:\Program Files\Heroku\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.11.1
+
+Platform: 
+  win32 x64
+
+npm manifest: 
+  {
+      "name": "sport-team-scheduler",
+      "version": "1.0.0",
+      "description": "Sport-team-scheduler",
+      "main": "server.js",
+      "scripts": {
+          "server": "node server.js",
+          "client": "node scripts/start-client.js",
+          "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+          "build": "node scripts/build.js",
+          "test": "echo \"Error: no test specified\" && exit 1",
+          "installDeps": "yarn && cd client && yarn"
+      },
+      "author": "Shirley Ramirez <shirley.mramirez@yahoo.com>",
+      "license": "MIT",
+      "devDependencies": {
+          "babel-preset-es2015": "^6.24.1",
+          "babel-preset-react": "^6.24.1",
+          "concurrently": "^3.5.1",
+          "nodemon": "^1.17.3"
+      },
+      "dependencies": {
+          "bcryptjs": "^2.4.3",
+          "body-parser": "^1.18.2",
+          "connect-flash": "^0.1.1",
+          "cookie-parser": "^1.4.3",
+          "express": "^4.16.3",
+          "express-messages": "^1.0.1",
+          "express-session": "^1.15.6",
+          "express-validator": "^5.1.2",
+          "mongoose": "^5.0.12",
+          "passport": "^0.4.0",
+          "passport-http": "^0.3.0",
+          "passport-local": "^1.0.0",
+          "react-redux": "^5.0.7",
+          "react-router-dom": "^4.2.2",
+  <<<<<<< HEAD
+          "socket-io": "^1.0.0",
+          "socket.io": "^2.1.0"
+      }
+  }
+  =======
+          "socket-io": "^1.0.0"
+  
+      }
+  }
+  
+  >>>>>>> d4c7605d4f4e8110caddaee10de56c3656c0e4cc
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  SyntaxError: C:\Users\bdunc\OneDrive\Documents\codingbootcampwork\project3\Sport-Team-Schedule\sport-team-scheduler\package.json: Unexpected token < in JSON at position 1236
+      at JSON.parse (<anonymous>)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:1036:59
+      at Generator.next (<anonymous>)
+      at step (C:\Program Files (x86)\Yarn\lib\cli.js:98:30)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:109:13
+      at <anonymous>
