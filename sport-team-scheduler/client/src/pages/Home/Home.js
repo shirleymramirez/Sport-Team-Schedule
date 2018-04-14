@@ -30,7 +30,10 @@ const Home = () =>
 	  </GridCell>
 	  <GridCell span="4"></GridCell>
 	</Grid>
-</div>;
+<br />
+<br />
+</div>
+
 
 
 
