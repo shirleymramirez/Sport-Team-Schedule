@@ -20,7 +20,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 // Serve up static assets
-app.use(express.static("client/build"));
+// app.use(express.static("client/build"));
+
+app.use(express.static(path.join(__dirname, "build")));
+
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+
+
 
 // Add routes, both API and view
 app.use(routes);
@@ -38,7 +46,6 @@ mongoose.connect(
     "mongodb://localhost/sport-team-scheduler" ||
     "mongodb://mongodb://<dbuser>:<dbpassword>@ds249757.mlab.com:49757/heroku_3kvsrs9m"
 );
-//<dbuser>:<dbpassword>@ds249757.mlab.com:49757/heroku_3kvsrs9m
 mongodb: var db = mongoose.connection;
 
 SocketManager(app, PORT);
