@@ -10,7 +10,6 @@ router.use("/api", userRoutes);
 
 // If no API routes are hit, send the React app
 router.use(function(req, res) {
-  console.log("App running at PORT " + PORT);
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
