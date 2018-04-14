@@ -4,7 +4,7 @@ import { Typography } from "rmwc/Typography";
 
 const ChatHeader = () =>
   <div className="chatHeader-title">
-      <Typography use="title">Shirley and Kassi</Typography>
+      <Typography use="title">Team</Typography>
   </div>;
 
 export default ChatHeader;

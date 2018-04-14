@@ -1,50 +1,56 @@
-import React from 'react';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { List, SimpleListItem } from "rmwc/List";
 import "./SideBar.css";
 import { Card } from "rmwc/Card";
+import ChatAPI from "../../utils/chatApi";
 import { TextField } from 'rmwc/TextField';
 import { Button, ButtonIcon } from "rmwc/Button";
 import { Typography } from "rmwc/Typography";
 
-const SideBar = () =>
-  <Card style={{ width: "30%" }}>
-    <TextField
-      className="sidebar-inputSearch"
-      withLeadingIcon="search"
-      label="Search..."
-      use="message"
-    />
-    <List twoLine>
-      <SimpleListItem
-        graphic="Shirley"
-        text="Shirley"
-        secondaryText="Chat Messages"
-      />
-      <SimpleListItem
-        graphic="Kassi"
-        text="Kassi"
-        secondaryText="Chat Messages"
-      />
-      <SimpleListItem
-        graphic="Derrick"
-        text="Derrick"
-        secondaryText="Chat Messages"
-      />
+class SideBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      connectedUsers: []
+    };
 
-      <SimpleListItem
-        graphic="Bryant"
-        text="Bryant"
-        secondaryText="Chat Messages"
-      />
-    </List>
-    <div className="sidebar-title">
-      <Typography use="title">Messages</Typography>
-      <Button className="sidebar-button">
-        <ButtonIcon className="sidebar-buttonIcon" use="chat bubble outline" />
-      </Button>
-    </div>
-  </Card>;
+    this.connectedUsersHandler = this.connectedUsersHandler.bind(this);
 
+    props.socket.on("CONNECTED_USERS", this.connectedUsersHandler);
+  }
+
+  connectedUsersHandler(data) {
+    this.setState({ connectedUsers: data });
+  }
+
+  render() {
+    return (
+      <Card style={{ width: "30%" }} className="sidebar-background-color">
+        <TextField
+          className="sidebar-inputSearch"
+          withLeadingIcon="search"
+          label="Search..."
+          use="message"
+        />
+        <List twoLine>
+          {this.state.connectedUsers.map(user =>
+            <SimpleListItem key={user.id} text={user.name} />
+          )}
+        </List>
+        <div className="sidebar-title">
+          <Typography use="title">Messages</Typography>
+          <Button className="sidebar-button">
+            <ButtonIcon
+              className="sidebar-buttonIcon"
+              use="chat bubble outline"
+            />
+          </Button>
+        </div>
+      </Card>
+    );
+  }
+}
 
 export default SideBar;
-    
+
