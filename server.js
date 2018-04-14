@@ -28,7 +28,6 @@ app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
-
 // Add routes, both API and view
 app.use(routes);
 
