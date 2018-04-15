@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-import { Button, ButtonIcon } from 'rmwc/Button';
+import { Button } from 'rmwc/Button';
 import { Grid, GridCell } from 'rmwc/Grid';
 import { Typography } from 'rmwc/Typography';
 import './Home.css';
@@ -13,7 +13,7 @@ const Home = () =>
   <div className="main-container">
     <div className="jumbotron">
       <center><h1>Sports Team Scheduler</h1></center>
-      	<img className="soccerBall" src={soccerBall} width="100%" height="100%" />
+      	<img className="soccerBall" alt="soccer_ball" src={soccerBall} width="100%" height="100%" />
 
     </div>
   </div>
