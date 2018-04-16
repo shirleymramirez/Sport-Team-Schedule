@@ -64,7 +64,8 @@ mongoose.connect(
   process.env.MONGODB_URI ||
     "mongodb://localhost/sport-team-scheduler"
 );
-mongodb: var db = mongoose.connection;
+
+// var db = mongoose.connection;
 
 SocketManager(app, PORT);
 
