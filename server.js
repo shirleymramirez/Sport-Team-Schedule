@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 // var expressValidator = require('express-validator');
 var exphbs = require('express-handlebars');
 // var flash = require('connect-flash');
-var session = require('express-session');
+// var session = require('express-session');
 // var passport = require('passport');
 // var LocalStrategy = require('passport-local').Strategy;
 const mongoose = require("mongoose");
@@ -17,28 +17,28 @@ const PORT = process.env.PORT || 3001;
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cookieParser());
+// app.use(cookieParser());
 
-app.set("trust proxy", 1);
+// app.set("trust proxy", 1);
 
-app.use(
-  session({
-    secret: 'secret',
-    resave: false,
-    saveUninitialized: true
-  })
-);
+// app.use(
+//   session({
+//     secret: 'secret',
+//     resave: false,
+//     saveUninitialized: true
+//   })
+// );
 
 //middleware for setting up a user object when anyone first come to the appplication
-function userSetup(req, res, next) {
-  if (!req.session.user) {
-    req.session.user = {};
-    req.session.user.loggedIn = false;
-  }
-  next();
-}
+// function userSetup(req, res, next) {
+//   if (!req.session.user) {
+//     req.session.user = {};
+//     req.session.user.loggedIn = false;
+//   }
+//   next();
+// }
 
-app.use(userSetup);
+// app.use(userSetup);
 
 
 
