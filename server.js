@@ -2,12 +2,12 @@ const express = require("express");
 const bodyParser = require("body-parser");
 var path = require('path');
 var cookieParser = require('cookie-parser');
-var expressValidator = require('express-validator');
+// var expressValidator = require('express-validator');
 var exphbs = require('express-handlebars');
-var flash = require('connect-flash');
-var session = require('express-session');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+// var flash = require('connect-flash');
+// var session = require('express-session');
+// var passport = require('passport');
+// var LocalStrategy = require('passport-local').Strategy;
 const mongoose = require("mongoose");
 const routes = require("./routes/");
 const SocketManager = require("./socketmanager/SocketManager");
@@ -56,43 +56,43 @@ var users = require("./routes/api/users");
 app.use('/users', users);
 
 // express session 
-app.use(session({
-	secret:'secret',
-	saveUninitialized: true,
-	resave:true
-}));
+// app.use(session({
+// 	secret:'secret',
+// 	saveUninitialized: true,
+// 	resave:true
+// }));
 
 // Passport init
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // Express Validator
-app.use(expressValidator({
-  errorFormatter: function(param, msg, value) {
-      var namespace = param.split('.')
-      , root    = namespace.shift()
-      , formParam = root;
+// app.use(expressValidator({
+//   errorFormatter: function(param, msg, value) {
+//       var namespace = param.split('.')
+//       , root    = namespace.shift()
+//       , formParam = root;
 
-    while(namespace.length) {
-      formParam += '[' + namespace.shift() + ']';
-    }
-    return {
-      param : formParam,
-      msg   : msg,
-      value : value
-    };
-  }
-}));
+//     while(namespace.length) {
+//       formParam += '[' + namespace.shift() + ']';
+//     }
+//     return {
+//       param : formParam,
+//       msg   : msg,
+//       value : value
+//     };
+//   }
+// }));
 
 // connect flash 
-app.use(flash());
+// app.use(flash());
 // var for flash 
-app.use(function(req, res, next){
-	res.locals.success_msg = req.flash('success_msg');
-	res.locals.error_msg = req.flash('error_msg');
-	res.locals.error = req.flash('error');
-	next();
-});
+// app.use(function(req, res, next){
+// 	res.locals.success_msg = req.flash('success_msg');
+// 	res.locals.error_msg = req.flash('error_msg');
+// 	res.locals.error = req.flash('error');
+// 	next();
+// });
 
 
 
