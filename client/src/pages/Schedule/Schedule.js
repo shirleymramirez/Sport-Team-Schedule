@@ -4,15 +4,11 @@ import ViewSchedule from "./../../components/ViewSchedule";
 // allows for card use 
 
 const Schedule = () =>(
-<div>
-<center>
-
-  <ViewSchedule />
-
- </center>
-
-</div>
-
+  <div>
+    <center>
+      <ViewSchedule />
+    </center>
+  </div>
 );
 
 export default Schedule;

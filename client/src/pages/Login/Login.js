@@ -57,38 +57,28 @@ class Login extends Component {
             <Card style={{ width: "21rem" }}>
               <CardPrimaryAction>
                 <CardMedia
-                  sixteenByNine
-                  style={{
-                    backgroundImage:
-                      "url(https://material-components-web.appspot.com/images/16-9.jpg)"
-                  }}
-                />
+                  sixteenByNine 
+                  style={{ backgroundImage:"url(https://material-components-web.appspot.com/images/16-9.jpg)" }} />
                 <div style={{ padding: "0 1rem 1rem 1rem" }}>
-                  <Typography use="title" tag="h2">
-                    Login To Sport-Team-Schedule
-                  </Typography>
+                  <Typography use="title" tag="h2"> Login To Sport-Team-Schedule </Typography>
                   <Typography
                     use="subheading1"
                     tag="h3"
                     theme="text-secondary-on-background"
-                    style={{ marginTop: "-1rem" }}
-                  >
+                    style={{ marginTop: "-1rem" }} >
                     <TextField
                       label="UserName"
                       value={this.state.username}
-                      onChange={this.userNameChangehandler}
-                    />
+                      onChange={this.userNameChangehandler} />
                   </Typography>
                   <Typography
                     use="body1"
                     tag="div"
-                    theme="text-secondary-on-background"
-                  >
+                    theme="text-secondary-on-background">
                     <TextField
                       label="PassWord"
                       value={this.state.password}
-                      onChange={this.userPasswordChangehandler}
-                    />
+                      onChange={this.userPasswordChangehandler}/>
                   </Typography>
                 </div>
               </CardPrimaryAction>
@@ -100,16 +90,9 @@ class Login extends Component {
                   <Typography>
                     Don't have an account...
                     <span>
-                      <CardAction
-                        className={
-                          window.location.pathname === "/login/signup"
-                            ? "active"
-                            : ""
-                        }
-                      >
-                        <Link className="Link" to="/login/signup">
-                          Sign up
-                        </Link>
+                      <CardAction>
+                         {/* className={ window.location.pathname === "/login/signup" ? "active" : "" }> */}
+                        <Link className="Link" to="/login/signup"> Sign up </Link>
                       </CardAction>
                     </span>
                   </Typography>

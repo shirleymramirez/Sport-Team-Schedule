@@ -11,12 +11,11 @@ class Chat extends Component {
       socket: io()
     }
   }
-
   render() {
     return <div className="chatBoard">
         <SideBar socket={this.state.socket} />
         <Messages socket={this.state.socket} />
-      </div>;
-  }
+      </div>
+  };
 }
 export default Chat; 
