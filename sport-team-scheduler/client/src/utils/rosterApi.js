@@ -1,7 +1,16 @@
 import axios from "axios";
 
 export default {
-	create: function (data) {
-		return axios.post("/api/add/");
+	Add: function(data) {
+		console.log(data);
+		// console.log("hello");s
+		return axios.post("/api/add/",{
+			name: data.name,
+			age: data.age,
+			team: data.team
+		});
 	},
+	getAll: function(){
+		return axios.get("/api/show");
+	}
 };

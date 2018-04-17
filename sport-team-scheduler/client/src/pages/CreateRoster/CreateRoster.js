@@ -37,6 +37,12 @@ class CreateRoster extends Component {
 	onClickHandler(e){
 		e.preventDefault();
 		console.log(this.state);
+		RosterAPI.Add({
+			name: this.state.name,
+			age: this.state.age,
+			team: this.state.team
+		})
+		// clears input
 		this.setState({
 			name:'',
 			age:'',

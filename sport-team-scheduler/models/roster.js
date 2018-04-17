@@ -2,14 +2,14 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const rosterSchema = new Schema({
-	playersName:{
+	name:{
 		type: String,
 		index:true
 	},
-	playersAge:{
+	age:{
 		type:String
 	},
-	Team:{
+	team:{
 		type:String
 	}
 });

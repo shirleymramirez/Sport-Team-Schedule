@@ -28,9 +28,6 @@ app.use(routes);
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
 
-// routes for handlebars
-var users = require("./routes/api/users");
-app.use('/users', users);
 
 // Connect to the Mongo DB
 mongoose.connect(
@@ -39,15 +36,6 @@ mongoose.connect(
 var db = mongoose.connection;
 
 SocketManager(app, PORT);
-
-// handebars engine
-app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({defaultLayout:'layout'}));
-app.set('view engine', 'handlebars');
-
-// routes for handlebars
-var users = require("./routes/api/users");
-app.use('/users', users);
 
 // express session 
 app.use(session({

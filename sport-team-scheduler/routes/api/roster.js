@@ -1,2 +1,11 @@
 const router = require("express").Router();
-const rosterControll = require("../../controllers/rosterController");
+const rosterController = require("../../controllers/rosterController");
+
+// matched to api
+router.route("/add")
+	.post(rosterController.create);
+// displaying 
+router.route("/show")
+	.post(rosterController.findAll);
+
+module.exports = router;
