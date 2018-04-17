@@ -61,7 +61,7 @@ class Login extends Component {
                   sixteenByNine
                   style={{
                     backgroundImage:
-                      "url(https://material-components-web.appspot.com/images/16-9.jpg)"
+                      "url(https://m.media-amazon.com/images/S/aplus-media/vc/7895a621-9359-412d-92d2-94c15adc4c70._SL300__.jpg)"
                   }}
                 />
                 <div style={{ padding: "0 1rem 1rem 1rem" }}>
