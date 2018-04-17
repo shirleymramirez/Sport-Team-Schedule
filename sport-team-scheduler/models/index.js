@@ -1,4 +1,5 @@
 module.exports = {
   Message: require("./message"),
-  Users: require("./users")
+  Users: require("./users"),
+  Roster: require("./roster")
 };

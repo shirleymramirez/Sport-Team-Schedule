@@ -13,7 +13,6 @@ class SignupForm extends Component {
 		// Password2:''
 	};
 
-
 	change = e => {
 		this.setState({
 			[e.target.name]: e.target.value
@@ -32,6 +31,7 @@ class SignupForm extends Component {
 			password:''
 			// Password2:''
 		});
+    
 	};
 
 
