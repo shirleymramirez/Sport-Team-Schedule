@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
-// var bcrypt = require("bcryptjs");
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var scheduleSchema = mongoose.Schema({
+var scheduleSchema = new Schema({
 	date:{
 		type: String,
 		index: true
@@ -18,3 +18,5 @@ var scheduleSchema = mongoose.Schema({
 });
 
 var Schedule = module.exports = mongoose.model('schedule', scheduleSchema);
+
+module.exports = Schedule;
