@@ -1,7 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 import { Button, ButtonIcon } from 'rmwc/Button';
-import { Grid, GridCell } from 'rmwc/Grid';
 import { Typography } from 'rmwc/Typography';
 import './Home.css';
 import soccerBall from "./images/soccer2.jpg"
@@ -14,24 +13,19 @@ const Home = () =>
     <div className="jumbotron">
       <center><h1>Sports Team Scheduler</h1></center>
       	<img className="soccerBall" src={soccerBall} width="100%" height="100%" />
-
     </div>
   </div>
 
 <Typography use="title" ><center><h3>I am a...</h3></center></Typography>
 
-	<Grid>
-	  <GridCell span="4"></GridCell>
-	  <GridCell span="4">
+	<div className="container">
 	  <center>
 	  	<Button stroked id="btn1" ><Link className="btn1" to="/login"><h4>Parent</h4></Link></Button>
 	  	<Button stroked id="btn2" ><Link className="btn2" to="/login"><h4>Coach</h4></Link></Button>
 	  </center>
-	  </GridCell>
-	  <GridCell span="4"></GridCell>
-	</Grid>
-<br />
-<br />
+	</div>
+
+	
 </div>
 
 
