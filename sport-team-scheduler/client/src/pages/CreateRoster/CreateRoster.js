@@ -100,7 +100,6 @@ class CreateRoster extends Component {
 					  <CardActions>
 					  </CardActions>
 					</Card>
-
 	  <GridCell span="6">
 		<center>
 		<Card style={{width: '40rem'}}>
@@ -117,7 +116,7 @@ class CreateRoster extends Component {
 				<h5><TextField label="Player's Age"/></h5> <div> </div>
 				<h5><TextField label="Team" /> </h5><div> </div>
 				<div className="submit">
-					<button className="btn" >Submit</button>
+						<button className="btn" >Submit</button>
 				</div>	
 				</center>
 				  </GridCell>
