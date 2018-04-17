@@ -100,24 +100,6 @@ class CreateRoster extends Component {
 					  <CardActions>
 					  </CardActions>
 					</Card>
-	  <GridCell span="6">
-		<center>
-		<Card style={{width: '40rem'}}>
-		  <CardPrimaryAction>
-		    <div style={{padding: '0 1rem 1rem 1rem'}}>
-		      <Typography use="title"><center><h3>Add to Roster</h3></center></Typography>
-		      <Typography
-		        use="subheading1"
-		        tag="h3"
-		        theme="text-secondary-on-background"
-		        style={{marginTop: '-1rem'}}
-		      > <center>
-				<h5><TextField label="Player's Name"/></h5> <div> </div>
-				<h5><TextField label="Player's Age"/></h5> <div> </div>
-				<h5><TextField label="Team" /> </h5><div> </div>
-				<div className="submit">
-						<button className="btn" >Submit</button>
-				</div>	
 				</center>
 				  </GridCell>
 				<GridCell span="6"> <ViewRoster /></GridCell>
