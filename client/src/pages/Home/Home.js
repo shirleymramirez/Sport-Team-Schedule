@@ -1,7 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 import { Button } from 'rmwc/Button';
-import { Grid, GridCell } from 'rmwc/Grid';
 import { Typography } from 'rmwc/Typography';
 import './Home.css';
 import soccerBall from "./images/soccer2.jpg"
