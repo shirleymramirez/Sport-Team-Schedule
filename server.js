@@ -41,8 +41,7 @@ app.use(bodyParser.json());
 // app.use(userSetup);
 
 
-
-app.use(express.static(path.join(__dirname, "build")));
+app.use(express.static(path.join(__dirname, "client/build")));
 
 // Serve up static assets
 app.get("/", function(req, res) {
