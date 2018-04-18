@@ -6,6 +6,6 @@ router.route("/add")
 	.post(rosterController.create);
 // displaying 
 router.route("/show")
-	.post(rosterController.findAll);
+	.get(rosterController.findAll);
 
 module.exports = router;

@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
 	Add: function(data) {
 		console.log(data);
-		// console.log("hello");s
+		// console.log("hello");
 		return axios.post("/api/add",{
 			name: data.name,
 			age: data.age,
@@ -11,6 +11,6 @@ export default {
 		});
 	},
 	getAll: function(){
-		return axios.get("/api/show");
+			return axios.get("/api/show");
 	}
 };
