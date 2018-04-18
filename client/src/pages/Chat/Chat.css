@@ -1,0 +1,8 @@
+.chatBoard {
+    display: flex;
+    top: 10px
+}
+
+.chat-messages {
+    width: 100%;
+}
