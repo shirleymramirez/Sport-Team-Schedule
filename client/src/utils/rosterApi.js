@@ -10,7 +10,8 @@ export default {
 			team: data.team
 		});
 	},
-	getAll: function(){
+	getAll: function(req, res){
+		console.log(req);
 		return axios.get("/api/show");
 	}
 };
