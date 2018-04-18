@@ -11,6 +11,18 @@ class ViewRoster extends Component {
 
     };
 
+    componentDidMount() {
+      this.loadPlayer();
+    }
+
+
+    loadPlayer = () => {
+      RosterAPI.getAll()
+        .then(res => this.setState({ Players: res.data}))
+        .catch(err => console.log(err));
+        console.log(this.state.Players);
+    };
+
 
   render(){
     return(
@@ -27,9 +39,9 @@ class ViewRoster extends Component {
                 </thead>
                 <tbody>
                   <tr>
-                    <td><center>Dawson Duncan</center></td>
-                    <td><center>100</center></td>
-                    <td><center>racecars</center></td>
+                    <td><center></center></td>
+                    <td><center></center></td>
+                    <td><center></center></td>
                   </tr>
                 </tbody>
               </table>

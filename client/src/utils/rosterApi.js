@@ -3,15 +3,14 @@ import axios from "axios";
 export default {
 	Add: function(data) {
 		console.log(data);
-		// console.log("hello");s
+		// console.log("hello");
 		return axios.post("/api/add",{
 			name: data.name,
 			age: data.age,
 			team: data.team
 		});
 	},
-	getAll: function(req, res){
-		console.log(req);
-		return axios.get("/api/show");
+	getAll: function(){
+			return axios.get("/api/show");
 	}
 };
