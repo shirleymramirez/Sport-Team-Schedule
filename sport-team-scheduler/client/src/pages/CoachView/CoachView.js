@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-import { Button, ButtonIcon } from 'rmwc/Button';
+import { Button } from 'rmwc/Button';
 // import Roster from "./../../components/Roster";
 // import Schedule from "./../../components/Schedule";
 import Weather from "./../../components/weatherApi";
