@@ -15,8 +15,8 @@ export default {
   },
   saveSchedules: function(scheduleData) {
     return axios.post("api/schedule/", {
-      date: scheduleData.date,
       place: scheduleData.place,
+      date: scheduleData.date,
       time: scheduleData.time,
       snack: scheduleData.snack
     });
