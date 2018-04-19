@@ -18,7 +18,14 @@ class ViewSchedule extends Component {
 
     loadSchedule = () => {
       ScheduleAPI.getSchedules()
-        .then(res => this.setState({ Schedules: res.data}))
+        .then(res => {
+          return res;
+        }).then(data => {
+          console.log(data)
+        })
+        .then((data) => this.setState({ 
+          Schedules: data
+        }))
         .catch(err => console.log(err));
         console.log(this.state.Schedules);
     };
