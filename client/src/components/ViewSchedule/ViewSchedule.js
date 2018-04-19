@@ -5,6 +5,7 @@ import * as scheduleActionCreators from "./../../pages/Schedule/scheduleActionCr
 import ScheduleAPI from "../../utils/scheduleApi";
 
 
+<<<<<<< HEAD
 class ViewSchedule extends Component {
     state ={
       Schedules: []
@@ -25,27 +26,33 @@ class ViewSchedule extends Component {
 
   render(){
     return(
+
   <form>
-    <center><h1>Team Schedule </h1></center>
-      <div class="panel-body">
-        <table class="table table-hover" id='trainTable'>
-          <thead>
-            <tr>
-              <th><center>Location</center></th>
-              <th><center>Date</center></th>
-              <th><center>Time</center></th>
-              <th><center>Assigned Snack</center></th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
+
+  <center><h1>Team Schedule </h1></center>
+          <div class="panel-body">
+            <table class="table table-hover" id='trainTable'>
+              <thead>
+                <tr>
+                  <th><center>Location</center></th>
+                  <th><center>Date</center></th>
+                  <th><center>Time</center></th>
+                  <th><center>Assigned Snack</center></th>
+                </tr>
+              </thead>
+              <tbody>
+                
+              </tbody>
+            </table>
+          </div>
+
  	</form>
 )};
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
+
 
   };
 };

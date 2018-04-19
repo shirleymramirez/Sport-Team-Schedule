@@ -1,62 +1,27 @@
-import React, {Component} from "react";
-import { connect } from 'react-redux';
-import { bindActionCreators } from "redux";
-import * as rosterActionCreators from "./rosterActionCreators";
-import RosterAPI from "../../utils/rosterApi";
+import React from "react";
 
 
-class ViewRoster extends Component {
-    state ={
-      Players: []
+const ViewRoster = () => (
 
-    };
+  <form>
+  <center><h1>Roster </h1></center>
+          <div class="panel-body">
+            <table class="table table-hover" id=''>
+              <thead>
+                <tr>
+                  <th><center>Player's Name</center></th>
+                  <th><center>Team</center></th>
+                </tr>
+              </thead>
+              <tbody>
+                
+              </tbody>
+            </table>
+          </div>
 
-    componentDidMount() {
-      this.loadPlayer();
-    }
-
-
-    loadPlayer = () => {
-      RosterAPI.getAll()
-        .then(res => this.setState({ Players: res.data}))
-        .catch(err => console.log(err));
-        console.log(this.state.Players);
-    };
-
-
-  render(){
-    return(
-    <form>
-    <center><h1>Roster </h1></center>
-            <div className="panel-body">
-              <table className="table table-hover" id=''>
-                <thead>
-                  <tr>
-                    <th><center>Player's Name</center></th>
-                    <th><center>Player's Age</center></th>
-                    <th><center>Team</center></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><center></center></td>
-                    <td><center></center></td>
-                    <td><center></center></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-    </form>
-  )};
+  </form>
   
-};
+    );
 
-const mapStateToProps = (state, ownProps) => {
-  return {
 
-  };
-};
-const mapDispatchToProps = (dispatch) => {
-  return { actions: bindActionCreators(rosterActionCreators, dispatch) };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(ViewRoster);
+export default ViewRoster;

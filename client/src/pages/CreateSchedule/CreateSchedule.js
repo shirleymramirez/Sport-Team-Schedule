@@ -137,6 +137,7 @@ class SchedulePage extends Component {
 		<br />
 		<ViewSchedule />
 	</div>
+
 );
 }
 }
