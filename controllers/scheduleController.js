@@ -13,13 +13,13 @@ module.exports = {
   //   });
   // },
   findAll: function(req, res) {
-    db.schedule.find().then(dbModel => {
+    db.Schedule.find().then(dbModel => {
         console.log("All Schedules: " + dbModel);
         res.send(dbModel);
     });
   },
   create: function(req, res) {
-    db.schedule
+    db.Schedule
       .create(req.body)
       .then(dbModel => {
         console.log("Create: " + dbModel);

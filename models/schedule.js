@@ -17,6 +17,6 @@ var scheduleSchema = new Schema({
 	}
 });
 
-var Schedule = module.exports = mongoose.model('schedule', scheduleSchema);
+const Schedule = mongoose.model('schedule', scheduleSchema);
 
 module.exports = Schedule;

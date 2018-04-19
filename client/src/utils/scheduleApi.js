@@ -14,6 +14,7 @@ export default {
     return axios.get("/api/schedule");
   },
   saveSchedules: function(scheduleData) {
+  	console.log(scheduleData);
     return axios.post("api/schedule/", {
       place: scheduleData.place,
       date: scheduleData.date,
