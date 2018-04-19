@@ -58,7 +58,7 @@ class SchedulePage extends Component {
 
 	onClickHandler(e) {
 		console.log(this.state);
-		ScheduleAPI.schedule({
+		ScheduleAPI.saveSchedules({
 			date: this.state.date,
 			place: this.state.place,
 			time: this.state.time,

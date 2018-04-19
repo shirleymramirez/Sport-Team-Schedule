@@ -8,6 +8,6 @@ router.route("/schedules")
 // router.route("/schedule")
 // 	.post(scheduleController.findbyUserName);
 
-router.get("/schedule", scheduleController.findAll);
+router.get("/schedules", scheduleController.findAll);
 
 module.exports = router;

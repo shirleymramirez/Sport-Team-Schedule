@@ -1,4 +1,4 @@
-sconst db = require("../models/");
+const db = require("../models/");
 
 //here we will add code to create 
 // a kid on the roster and read and 
@@ -14,8 +14,8 @@ module.exports = {
 			})
 			// .catch(err => res.status(422)send(err));
 	}, //closes create
-	findAll: function (req, res) {
-		console.log(req.body)
+	findAll: function () {
+		
 		db.Roster.find().then(data => {
 			console.log("the Team: " + data);
 			res.send(data);
