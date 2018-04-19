@@ -19,7 +19,7 @@ const CreateRoster = () => (
 
 	  <GridCell span="6">
 		<center>
-		<Card style={{width: '21rem'}}>
+		<Card style={{width: '40rem'}}>
 		  <CardPrimaryAction>
 		    <div style={{padding: '0 1rem 1rem 1rem'}}>
 		      <Typography use="title" tag="h2"><center>Add to Roster</center></Typography>
