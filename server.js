@@ -15,7 +15,6 @@ const PORT = process.env.PORT || 3001;
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 // Production
 app.use(express.static(path.join(__dirname, "client/build")));
 
@@ -62,9 +61,4 @@ app.set('view engine', 'handlebars');
 // routes for handlebars
 var users = require("./routes/api/users");
 app.use('/users', users);
-
-
-
-
-
 

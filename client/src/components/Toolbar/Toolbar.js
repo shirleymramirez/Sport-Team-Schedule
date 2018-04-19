@@ -9,7 +9,7 @@ import {
 
 import "./Toolbar.css";
 
-const Navbar = () =>
+const Navbar = () =>(
   <Toolbar className="navbar">
     <ToolbarRow>
       <ToolbarSection alignStart>
@@ -17,5 +17,6 @@ const Navbar = () =>
         <ToolbarTitle>Sport Team Scheduler</ToolbarTitle>
       </ToolbarSection>
     </ToolbarRow>
-  </Toolbar>;
+</Toolbar>
+);
 export default Navbar;

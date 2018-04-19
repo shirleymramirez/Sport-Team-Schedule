@@ -11,7 +11,7 @@ const parentsView = () =>
   	<div className="col-lg-6">
     <Weather />
     <MyMapComponent />
-        <Button stroked id="rosterbtn"><Link className="rosterbtn" to="/roster">View Roster</Link></Button>
+    <Button stroked id="rosterbtn"><Link className="rosterbtn" to="/roster">View Roster</Link></Button>
     <Button stroked id="schedulebtn"><Link className="schedulebtn" to="/schedule">View Schedule</Link></Button>
   	</div>
   	<div className="col-lg-3" />

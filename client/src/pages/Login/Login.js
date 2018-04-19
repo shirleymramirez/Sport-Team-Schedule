@@ -68,47 +68,86 @@ class Login extends Component {
         <Grid>
           <GridCell span="4" />
           <GridCell span="4">
-            <Card style={{ width: "21rem" }}>
+          <center>
+            <Card style={{ width: "35rem" }}>
               <CardPrimaryAction>
                 <CardMedia
                   sixteenByNine
+<<<<<<< HEAD:client/src/pages/Login/Login.js
                   style={{ backgroundImage: "url(https://material-components-web.appspot.com/images/16-9.jpg)"}}/>
                   <div style={{ padding: "0 1rem 1rem 1rem" }}>
                     <Typography use="title" tag="h2">
                       Login To Sport-Team-Schedule
                     </Typography>
+=======
+                  style={{
+                    backgroundImage:
+                      "url(https://m.media-amazon.com/images/S/aplus-media/vc/7895a621-9359-412d-92d2-94c15adc4c70._SL300__.jpg)"
+                  }}
+                />
+                <div style={{ padding: "0 1rem 1rem 1rem" }}>
+                  <Typography use="title">
+                    <h3>Login</h3>
+                  </Typography>
+>>>>>>> 96048ef162291808bdf9f7ab6a283e3a0b3b5c50:client/src/pages/Login/Login.js
                   <Typography
                     use="subheading1"
-                    tag="h3"
                     theme="text-secondary-on-background"
+<<<<<<< HEAD:client/src/pages/Login/Login.js
                     style={{ marginTop: "-1rem" }}>
                     <TextField
                       label="UserName"
                       value={this.state.username}
                       onChange={this.userNameChangehandler}/>
+=======
+                    style={{ marginTop: "-1rem" }}
+                  >
+                    <h5><TextField
+                      label="Username"
+                      value={this.state.username}
+                      onChange={this.userNameChangehandler}
+                    /></h5>
+>>>>>>> 96048ef162291808bdf9f7ab6a283e3a0b3b5c50:client/src/pages/Login/Login.js
                   </Typography>
                   <Typography
                     use="body1"
                     tag="div"
+<<<<<<< HEAD:client/src/pages/Login/Login.js
                     theme="text-secondary-on-background">
                     <TextField
                       label="PassWord"
                       value={this.state.password}
                       onChange={this.userPasswordChangehandler}
                       type="password"/>
+=======
+                    theme="text-secondary-on-background"
+                  >
+                    <h5><TextField
+                      label="Password"
+                      value={this.state.password}
+                      onChange={this.userPasswordChangehandler}
+                    /></h5>
+>>>>>>> 96048ef162291808bdf9f7ab6a283e3a0b3b5c50:client/src/pages/Login/Login.js
                   </Typography>
                 </div>
               </CardPrimaryAction>
               <CardActions>
                 <CardActionButtons>
                   <CardAction onClick={this.onClickHandler}>
-                    <Link to="/parent">Login</Link>
+                    <Link to="/parent"><h4>Login</h4></Link>
                   </CardAction>
+<<<<<<< HEAD:client/src/pages/Login/Login.js
                   <Typography> Don't have an account...
                     <span>
                       <CardAction>
+=======
+                  <Typography>
+                    <span>
+                      <CardAction
+                      >
+>>>>>>> 96048ef162291808bdf9f7ab6a283e3a0b3b5c50:client/src/pages/Login/Login.js
                         <Link className="Link" to="/login/signup">
-                          Sign up
+                          <h4>Sign up</h4>
                         </Link>
                       </CardAction>
                     </span>
@@ -116,6 +155,7 @@ class Login extends Component {
                 </CardActionButtons>
               </CardActions>
             </Card>
+            </center>
           </GridCell>
           <GridCell span="4" />
         </Grid>
@@ -126,7 +166,6 @@ class Login extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-
   };
 };
 const mapDispatchToProps = (dispatch) => {

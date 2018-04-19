@@ -9,7 +9,8 @@
         "start": "concurrently \"nodemon server.js\" \"npm run client\"",
         "build": "node scripts/build.js",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "installDeps": "yarn && cd client && yarn"
+        "installDeps": "yarn && cd client && yarn",
+        "heroku-postbuild": "npm run installDeps && npm run build "
     },
     "author": "Shirley Ramirez <shirley.mramirez@yahoo.com>",
     "license": "MIT",
