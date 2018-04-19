@@ -73,7 +73,7 @@ class CreateRoster extends Component {
 								label="Player's Name" 
 								value={this.state.name}
 								onChange={this.NameChangehandler}
-							/></h5> <div> </div>
+							/> <div> </div>
 							<TextField 
 								label="Player's Age" 
 								value={this.state.age}
@@ -83,7 +83,7 @@ class CreateRoster extends Component {
 								label="Team" 
 								value={this.state.team}
 								onChange={this.TeamChangehandler}
-							/> <div> </div>
+							/> </h5><div> </div>
 							<div className="submit">
 								<button className="btn" onClick={this.onClickHandler} >Submit</button>
 							</div>	
