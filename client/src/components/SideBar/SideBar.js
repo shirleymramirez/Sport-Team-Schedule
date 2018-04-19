@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { List, SimpleListItem } from "rmwc/List";
 import "./SideBar.css";
 import { Card } from "rmwc/Card";
-import ChatAPI from "../../utils/chatApi";
 import { TextField } from 'rmwc/TextField';
 import { Button, ButtonIcon } from "rmwc/Button";
 import { Typography } from "rmwc/Typography";

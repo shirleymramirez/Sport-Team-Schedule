@@ -23,7 +23,8 @@ class Login extends Component {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      isAuthenticated: false
     };
 
     this.userNameChangehandler = this.userNameChangehandler.bind(this);
@@ -32,12 +33,20 @@ class Login extends Component {
   }
 
   onClickHandler(e) {
+    e.preventDefault();
     UserAPI.login({
       username: this.state.username,
       password: this.state.password
     }).then(response => {
       this.props.actions.updateUser(response.data[0]);
-    });
+    }).catch((err, res) => {
+      if(err) {
+        this.setState({ errorMessage: "Authentication Failed"})
+      }
+      localStorage.setItem('token', res.body.token)
+      console.log(res.body);
+      this.getItem('token');
+    })
   };
 
   userNameChangehandler(e) {
@@ -47,6 +56,11 @@ class Login extends Component {
   userPasswordChangehandler(e) {
     this.setState({ password: e.target.value})
   };
+
+  isAuthenticated(){
+    const token = localStorage.getItem('token');
+     return token && token.length > 10 ;
+  }
 
   render() {
     return (
@@ -58,37 +72,30 @@ class Login extends Component {
               <CardPrimaryAction>
                 <CardMedia
                   sixteenByNine
-                  style={{
-                    backgroundImage:
-                      "url(https://material-components-web.appspot.com/images/16-9.jpg)"
-                  }}
-                />
-                <div style={{ padding: "0 1rem 1rem 1rem" }}>
-                  <Typography use="title" tag="h2">
-                    Login To Sport-Team-Schedule
-                  </Typography>
+                  style={{ backgroundImage: "url(https://material-components-web.appspot.com/images/16-9.jpg)"}}/>
+                  <div style={{ padding: "0 1rem 1rem 1rem" }}>
+                    <Typography use="title" tag="h2">
+                      Login To Sport-Team-Schedule
+                    </Typography>
                   <Typography
                     use="subheading1"
                     tag="h3"
                     theme="text-secondary-on-background"
-                    style={{ marginTop: "-1rem" }}
-                  >
+                    style={{ marginTop: "-1rem" }}>
                     <TextField
                       label="UserName"
                       value={this.state.username}
-                      onChange={this.userNameChangehandler}
-                    />
+                      onChange={this.userNameChangehandler}/>
                   </Typography>
                   <Typography
                     use="body1"
                     tag="div"
-                    theme="text-secondary-on-background"
-                  >
+                    theme="text-secondary-on-background">
                     <TextField
                       label="PassWord"
                       value={this.state.password}
                       onChange={this.userPasswordChangehandler}
-                    />
+                      type="password"/>
                   </Typography>
                 </div>
               </CardPrimaryAction>
@@ -97,16 +104,9 @@ class Login extends Component {
                   <CardAction onClick={this.onClickHandler}>
                     <Link to="/parent">Login</Link>
                   </CardAction>
-                  <Typography>
-                    Don't have an account...
+                  <Typography> Don't have an account...
                     <span>
-                      <CardAction
-                        className={
-                          window.location.pathname === "/login/signup"
-                            ? "active"
-                            : ""
-                        }
-                      >
+                      <CardAction>
                         <Link className="Link" to="/login/signup">
                           Sign up
                         </Link>

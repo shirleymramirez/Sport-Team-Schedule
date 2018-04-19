@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-import { Button, ButtonIcon } from 'rmwc/Button';
+import { Button } from 'rmwc/Button';
 import Weather from "./../../components/weatherApi";
 import MyMapComponent from "./../../components/Map"
 import "./parentsView.css";

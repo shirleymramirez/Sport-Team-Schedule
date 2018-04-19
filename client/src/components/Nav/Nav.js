@@ -4,8 +4,7 @@ import {
   Toolbar,
   ToolbarRow,
   ToolbarTitle,
-  ToolbarSection,
-  ToolbarMenuIcon
+  ToolbarSection
 } from "rmwc/Toolbar";
 import { SimpleMenu, MenuItem } from 'rmwc/Menu';
 import { Button } from 'rmwc/Button';

@@ -2,20 +2,14 @@ import React from "react";
 import ViewRoster from "./../../components/ViewRoster";
 import { Grid, GridCell } from 'rmwc/Grid';
 import { Typography } from 'rmwc/Typography';
-import { Button, ButtonIcon } from 'rmwc/Button';
-import { TextField, TextFieldIcon, TextFieldHelperText } from 'rmwc/TextField';
+import { TextField } from 'rmwc/TextField';
 // allows for text input use 
 // allows for card use 
 
 import {
   Card,
   CardPrimaryAction,
-  CardMedia,
-  CardAction,
-  CardMediaContent,
-  CardActions,
-  CardActionButtons,
-  CardActionIcons
+  CardActions
 } from 'rmwc/Card';
 
 
