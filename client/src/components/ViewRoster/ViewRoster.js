@@ -18,7 +18,14 @@ class ViewRoster extends Component {
 
     loadPlayer = () => {
       RosterAPI.getAll()
-        .then(res => this.setState({ Players: res.data}))
+        .then(res => {
+          return res;
+          }).then(data => {
+            console.log(data)
+          })
+        .then((Players) => this.setState({ 
+          Players: Players
+        }))
         .catch(err => console.log(err));
         console.log(this.state.Players);
     };
