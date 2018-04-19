@@ -23,8 +23,8 @@ class ViewRoster extends Component {
           }).then(data => {
             console.log(data)
           })
-        .then((Players) => this.setState({ 
-          Players: Players
+        .then((data) => this.setState({ 
+          Players: data
         }))
         .catch(err => console.log(err));
         console.log(this.state.Players);
