@@ -1,4 +1,4 @@
-sconst db = require("../models/");
+const db = require("../models/");
 
 //here we will add code to create 
 // a kid on the roster and read and 
