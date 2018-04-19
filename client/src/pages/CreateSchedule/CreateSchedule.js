@@ -64,6 +64,13 @@ class SchedulePage extends Component {
 			time: this.state.time,
 			snack: this.state.snack
 		});
+
+		   this.setState({
+            date:'',
+            place:'',
+            time:'',
+            snack: ''
+        });
 		// .then(response => {
 			// this.props.actions.updateSchedule(response)
 		// })
