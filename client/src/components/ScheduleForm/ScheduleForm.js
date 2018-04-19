@@ -1,25 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import ViewSchedule from "./../../components/ViewSchedule";
 import "./ScheduleForm.css";
-// import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from "redux";
-import { TextField, TextFieldIcon, TextFieldHelperText } from 'rmwc/TextField';
-import * as scheduleActionCreators from "./../../pages/Schedule/scheduleActionCreators";
 // allows for card use 
-import {
-  Card,
-  CardPrimaryAction,
-  CardMedia,
-  CardAction,
-  CardMediaContent,
-  CardActions,
-  CardActionButtons,
-  CardActionIcons
-} from 'rmwc/Card';
-import { Typography } from 'rmwc/Typography';
-import { Grid, GridCell } from 'rmwc/Grid';
 
 class ScheduleForm extends Component {
 	state={
@@ -47,7 +29,7 @@ class ScheduleForm extends Component {
     
 	};
 
-			render(){
+	render(){
 		return <div className="container">
         <div className="col-lg-3" />
         <div className="col-lg-6">

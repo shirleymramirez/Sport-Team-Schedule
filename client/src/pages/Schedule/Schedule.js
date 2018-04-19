@@ -1,12 +1,6 @@
 // import React from "react";
 import ViewSchedule from "./../../components/ViewSchedule";
-import React, { Component } from "react";
-import ScheduleForm from "./../../components/ScheduleForm";
-import ScheduleAPI from "../../utils/scheduleApi";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import * as scheduleActionCreators from "./scheduleActionCreators";
-
+import React from "react";
 // allows for text input use 
 // allows for card use 
 

@@ -68,7 +68,7 @@ class Login extends Component {
           <GridCell span="4" />
           <GridCell span="4">
             <center>
-              <Card style={{ width: "35rem" }}>
+              <Card style={{ width: "40rem" }}>
                 <CardPrimaryAction>
                   <CardMedia sixteenByNine style={{ backgroundImage: "url(https://m.media-amazon.com/images/S/aplus-media/vc/7895a621-9359-412d-92d2-94c15adc4c70._SL300__.jpg)" }} />
                   <div style={{ padding: "0 1rem 1rem 1rem" }}>
