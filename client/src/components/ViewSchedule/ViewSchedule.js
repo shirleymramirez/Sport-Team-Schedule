@@ -5,7 +5,6 @@ import * as scheduleActionCreators from "./../../pages/Schedule/scheduleActionCr
 import ScheduleAPI from "../../utils/scheduleApi";
 
 
-
 class ViewSchedule extends Component {
     state ={
       Schedules: []
