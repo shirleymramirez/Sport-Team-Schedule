@@ -63,69 +63,54 @@ class Login extends Component {
   }
 
   render() {
-    return (
-      <div>
+    return <div>
         <Grid>
           <GridCell span="4" />
           <GridCell span="4">
-          <center>
-            <Card style={{ width: "35rem" }}>
-              <CardPrimaryAction>
-                <CardMedia sixteenByNine                  
-                  style={{ backgroundImage: "url(https://m.media-amazon.com/images/S/aplus-media/vc/7895a621-9359-412d-92d2-94c15adc4c70._SL300__.jpg)"}}
-                />
-                <div style={{ padding: "0 1rem 1rem 1rem" }}>
-                  <Typography use="title">
-                    <h3>Login</h3>
-                  </Typography>
-                  <Typography
-                    use="subheading1"
-                    theme="text-secondary-on-background"
-                    style={{ marginTop: "-1rem" }}>
-
-                    <h5>
-                      <TextField
-                      label="Username"
-                      value={this.state.username}
-                      onChange={this.userNameChangehandler}/>
-                    </h5>
-                  </Typography>
-                  <Typography
-                    use="body1"
-                    tag="div"
-                    theme="text-secondary-on-background">
-                    <h5>
-                      <TextField
-                      label="Password"
-                      value={this.state.password}
-                      onChange={this.userPasswordChangehandler}/>
-                    </h5>
-                  </Typography>
-                </div>
-              </CardPrimaryAction>
-              <CardActions>
-                <CardActionButtons>
-                  <CardAction onClick={this.onClickHandler}>
-                    <Link to="/parent"><h4>Login</h4></Link>
-                  </CardAction>
-                  <Typography>
-                    <span>
-                      <CardAction>
-                        <Link className="Link" to="/login/signup">
-                          <h4>Sign up</h4>
-                        </Link>
-                      </CardAction>
-                    </span>
-                  </Typography>
-                </CardActionButtons>
-              </CardActions>
-            </Card>
+            <center>
+              <Card style={{ width: "35rem" }}>
+                <CardPrimaryAction>
+                  <CardMedia sixteenByNine style={{ backgroundImage: "url(https://m.media-amazon.com/images/S/aplus-media/vc/7895a621-9359-412d-92d2-94c15adc4c70._SL300__.jpg)" }} />
+                  <div style={{ padding: "0 1rem 1rem 1rem" }}>
+                    <Typography use="title">
+                      <h3>Login</h3>
+                    </Typography>
+                    <Typography use="subheading1" theme="text-secondary-on-background" style={{ marginTop: "-1rem" }}>
+                      <h5>
+                        <TextField label="Username" value={this.state.username} onChange={this.userNameChangehandler} />
+                      </h5>
+                    </Typography>
+                    <Typography use="body1" tag="div" theme="text-secondary-on-background">
+                      <h5>
+                        <TextField label="Password" value={this.state.password} onChange={this.userPasswordChangehandler} type="password" />
+                      </h5>
+                    </Typography>
+                  </div>
+                </CardPrimaryAction>
+                <CardActions>
+                  <CardActionButtons>
+                    <CardAction onClick={this.onClickHandler}>
+                      <Link to="/parent">
+                        <h4>Login</h4>
+                      </Link>
+                    </CardAction>
+                    <Typography>
+                      <span>
+                        <CardAction>
+                          <Link className="Link" to="/login/signup">
+                            <h4>Sign up</h4>
+                          </Link>
+                        </CardAction>
+                      </span>
+                    </Typography>
+                  </CardActionButtons>
+                </CardActions>
+              </Card>
             </center>
           </GridCell>
           <GridCell span="4" />
         </Grid>
-      </div>
-    );
+      </div>;
   }
 }
 
