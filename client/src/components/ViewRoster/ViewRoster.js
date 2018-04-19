@@ -55,15 +55,6 @@ class ViewRoster extends Component {
             </div>
     </form>
   )};
+};
   
-};
-
-const mapStateToProps = (state, ownProps) => {
-  return {
-
-  };
-};
-const mapDispatchToProps = (dispatch) => {
-  return { actions: bindActionCreators(rosterActionCreators, dispatch) };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(ViewRoster);
+export default ViewRoster;
