@@ -19,30 +19,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // app.use(cookieParser());
 
-// app.set("trust proxy", 1);
 
-// app.use(
-//   session({
-//     secret: 'secret',
-//     resave: false,
-//     saveUninitialized: true
-//   })
-// );
-
-//middleware for setting up a user object when anyone first come to the appplication
-// function userSetup(req, res, next) {
-//   if (!req.session.user) {
-//     req.session.user = {};
-//     req.session.user.loggedIn = false;
-//   }
-//   next();
-// }
-
-// app.use(userSetup);
-
-
-
-app.use(express.static(path.join(__dirname, "build")));
+app.use(express.static(path.join(__dirname, "client/build")));
 
 // Serve up static assets
 app.get("/", function(req, res) {
@@ -65,8 +43,6 @@ mongoose.connect(
     "mongodb://localhost/sport-team-scheduler"
 );
 
-// var db = mongoose.connection;
-
  
 SocketManager(app, PORT);
 
@@ -78,48 +54,4 @@ app.set('view engine', 'handlebars');
 // routes for handlebars
 var users = require("./routes/api/users");
 app.use('/users', users);
-
-// express session 
-// app.use(session({
-// 	secret:'secret',
-// 	saveUninitialized: true,
-// 	resave:true
-// }));
-
-// Passport init
-// app.use(passport.initialize());
-// app.use(passport.session());
-
-// Express Validator
-// app.use(expressValidator({
-//   errorFormatter: function(param, msg, value) {
-//       var namespace = param.split('.')
-//       , root    = namespace.shift()
-//       , formParam = root;
-
-//     while(namespace.length) {
-//       formParam += '[' + namespace.shift() + ']';
-//     }
-//     return {
-//       param : formParam,
-//       msg   : msg,
-//       value : value
-//     };
-//   }
-// }));
-
-// connect flash 
-// app.use(flash());
-// var for flash 
-// app.use(function(req, res, next){
-// 	res.locals.success_msg = req.flash('success_msg');
-// 	res.locals.error_msg = req.flash('error_msg');
-// 	res.locals.error = req.flash('error');
-// 	next();
-// });
-
-
-
-
-
 
