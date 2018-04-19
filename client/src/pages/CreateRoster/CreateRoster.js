@@ -19,22 +19,22 @@ const CreateRoster = () => (
 
 	  <GridCell span="6">
 		<center>
-		<Card style={{width: '21rem'}}>
+		<Card style={{width: '40rem'}}>
 		  <CardPrimaryAction>
 		    <div style={{padding: '0 1rem 1rem 1rem'}}>
-		      <Typography use="title" tag="h2"><center>Add to Roster</center></Typography>
+		      <Typography use="title" tag="h2"><center><h3>Add to Roster</h3></center></Typography>
 		      <Typography
 		        use="subheading1"
 		        tag="h3"
 		        theme="text-secondary-on-background"
 		        style={{marginTop: '-1rem'}}
 		      > <center>
-				<TextField label="Player's Name"/> <div> </div>
-				<TextField label="Player's Age"/> <div> </div>
-				<TextField label="Team" /> <div> </div>
+				<h5><TextField label="Player's Name"/></h5> <div> </div>
+				<h5><TextField label="Player's Age"/></h5> <div> </div>
+				<h5><TextField label="Team" /> </h5><div> </div>
 				<div className="submit">
 						<button className="btn" >Submit</button>
-				</div>	
+				</div>		
 				</center>
 		      </Typography>
 		    </div>
