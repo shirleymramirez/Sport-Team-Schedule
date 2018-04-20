@@ -4,13 +4,15 @@ export default {
 	Add: function(data) {
 		console.log(data);
 		// console.log("hello");
-		return axios.post("/api/add",{
+		// add
+		return axios.post("/api/rosters",{
 			name: data.name,
 			age: data.age,
 			team: data.team
 		});
 	},
 	getAll: function(){
-			return axios.get("/api/show");
+			// show or get
+			return axios.get("/api/rosters");
 	}
 };

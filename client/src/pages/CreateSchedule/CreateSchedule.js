@@ -2,23 +2,16 @@
 import ViewSchedule from "./../../components/ViewSchedule";
 // allows for text input use 
 import React, {Component} from "react";
-import ScheduleForm from "./../../components/ScheduleForm";
 import ScheduleAPI from "../../utils/scheduleApi";
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
-import { TextField, TextFieldIcon, TextFieldHelperText } from 'rmwc/TextField';
+import { TextField } from 'rmwc/TextField';
 // import * as scheduleActionCreators from "./scheduleActionCreators";
 // allows for card use 
 import {
   Card,
   CardPrimaryAction,
-  CardMedia,
-  CardAction,
-  CardMediaContent,
   CardActions,
-  CardActionButtons,
-  CardActionIcons
 } from 'rmwc/Card';
 import { Typography } from 'rmwc/Typography';
 import { Grid, GridCell } from 'rmwc/Grid';
