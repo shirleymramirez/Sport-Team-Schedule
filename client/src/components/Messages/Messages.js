@@ -19,7 +19,8 @@ class Messages extends Component {
     props.socket.on("RECEIVE_MESSAGE", this.receiveMessageHandler);
     props.socket.emit("JOIN", { id: props.userId, name: props.fullname });
   }
-
+  
+  //appending current messages to the existing messages in the database 
   receiveMessageHandler(data) {
     this.setState({ messages: [...this.state.messages, data] });
   }

@@ -15,7 +15,6 @@ module.exports = {
 			// .catch(err => res.status(422)send(err));
 	}, //closes create
 	findAll: function (req, res) {
-		console.log(req.body)
 		db.Roster.find().then(data => {
 			console.log("the Team: " + data);
 			res.send(data);

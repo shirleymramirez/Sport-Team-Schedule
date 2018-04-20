@@ -1,8 +1,30 @@
-import React from "react";
+import React, {Component} from "react";
+import { connect } from 'react-redux';
+import { bindActionCreators } from "redux";
+import * as scheduleActionCreators from "./../../pages/Schedule/scheduleActionCreators";
+import ScheduleAPI from "../../utils/scheduleApi";
 
 
-const ViewSchedule = () => (
+class ViewSchedule extends Component {
+    state ={
+      Schedules: []
 
+    };
+
+    componentDidMount() {
+      this.loadSchedule();
+    }
+
+
+    loadSchedule = () => {
+      ScheduleAPI.getSchedules()
+        .then(res => this.setState({ Schedules: res.data}))
+        .catch(err => console.log(err));
+        console.log(this.state.Schedules);
+    };
+
+  render(){
+    return(
 
   <form>
 
@@ -24,8 +46,17 @@ const ViewSchedule = () => (
           </div>
 
  	</form>
-  
-    );
+)};
+};
+
+const mapStateToProps = (state, ownProps) => {
+  return {
 
 
-export default ViewSchedule;
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return { actions: bindActionCreators(scheduleActionCreators, dispatch) };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(ViewSchedule);
+// export default ViewSchedule;
