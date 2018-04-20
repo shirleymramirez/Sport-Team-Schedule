@@ -14,5 +14,9 @@ export default {
 	getAll: function(){
 			// show or get
 			return axios.get("/api/rosters");
+	},
+	Remove: function(id){
+			//delete
+			return axios.get("/api/rosters/" + id);
 	}
 };

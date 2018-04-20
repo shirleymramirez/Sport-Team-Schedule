@@ -19,5 +19,12 @@ module.exports = {
 			console.log("the Team: " + data);
 			res.send(data);
 		});
+	},
+	Remove: function (req, res) {
+		db.Roster
+			.findById({ name: req.params.name })
+			.then(data => data.remove())
+	    	.then(data => res.json(data))
+    	  	.catch(err => res.status(422).json(err));
 	}
 };

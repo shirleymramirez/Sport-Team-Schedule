@@ -4,6 +4,7 @@ import ViewRoster from "./../../components/ViewRoster";
 import { Grid, GridCell } from 'rmwc/Grid';
 import RosterAPI from "../../utils/rosterApi";
 
+
 class Roster extends Component {
 	  constructor(props) {
     super(props);
@@ -11,7 +12,7 @@ class Roster extends Component {
       name: "",
       age: "",
       team: "",
-      players: []
+      players: [],
 		};
 		
 		this.NameChangehandler = this.NameChangehandler.bind(this);
@@ -50,7 +51,7 @@ class Roster extends Component {
     this.setState({
       name: "",
       age: "",
-      team: ""
+      team: "",
     });
   }
 
@@ -69,7 +70,7 @@ class Roster extends Component {
         <Grid>
           <GridCell span="4" />
           <GridCell span="4">
-            <ViewRoster players={this.state.players} />
+            <ViewRoster players={this.state.players}/>
           </GridCell>
           <GridCell span="4" />
         </Grid>

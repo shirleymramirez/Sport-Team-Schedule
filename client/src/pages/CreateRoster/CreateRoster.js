@@ -18,14 +18,17 @@ class CreateRoster extends Component {
     super(props);
     this.state = {
       name: "",
+      // name2:"",
       age: "",
       team: "",
-      players: []
+      players: [],
     };
     this.NameChangehandler = this.NameChangehandler.bind(this);
+    // this.Name2Changehandler = this.Name2Changehandler.bind(this);
     this.AgeChangehandler = this.AgeChangehandler.bind(this);
     this.TeamChangehandler = this.TeamChangehandler.bind(this);
     this.onClickHandler = this.onClickHandler.bind(this);
+    // this.onDeleteHandler = this.onDeleteHandler.bind(this);  
     this.loadPlayer = this.loadPlayer.bind(this);
   }
 
@@ -62,9 +65,24 @@ class CreateRoster extends Component {
     });
   }
 
+  // onDeleteHandler(e){
+  //   e.preventDefault();
+  //   console.log(this.state);
+  //   RosterAPI.Remove({
+  //     name: this.state.name2
+  //   })
+  //   // clear
+  //   this.setState({
+  //     name2: ""
+  //   });
+  // };
+
   NameChangehandler(e) {
     this.setState({ name: e.target.value });
   }
+  // Name2Changehandler(e) {
+  //   this.setState({ name2: e.target.value });
+  // }
   AgeChangehandler(e) {
     this.setState({ age: e.target.value });
   }
@@ -121,6 +139,40 @@ class CreateRoster extends Component {
                 </CardPrimaryAction>
                 <CardActions />
               </Card>
+              <br />
+              <Card style={{ width: "21rem" }}>
+                <CardPrimaryAction>
+                  <div style={{ padding: "0 1rem 1rem 1rem" }}>
+                    <Typography use="title" tag="h2">
+                      <center>Delete From Roster</center>
+                    </Typography>
+                    <Typography
+                      use="subheading1"
+                      tag="h3"
+                      theme="text-secondary-on-background"
+                      style={{ marginTop: "-1rem" }}
+                    >
+                      <center>
+                        <TextField
+                          label="Player's Name"
+                          value={this.state.name2}
+                          onChange={this.Name2Changehandler}
+                        />
+                        <div> </div>
+                        <div className="Delete">
+                          <button
+                            className="btn"
+                            onClick={this.onDeleteHandler}
+                            >
+                            Delete
+                          </button>
+                        </div>
+                      </center>
+                    </Typography>
+                  </div>
+                </CardPrimaryAction>
+                <CardActions />
+              </Card>              
             </center>
           </GridCell>
           <GridCell span="6">

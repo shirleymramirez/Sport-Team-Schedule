@@ -7,5 +7,8 @@ router.route("/rosters")
 // displaying(show)
 router.route("/rosters")
 	.get(rosterController.findAll);
+// matched to (remove)
+router.route("/rosters/:id")
+	.delete(rosterController.Remove);
 
 module.exports = router;
