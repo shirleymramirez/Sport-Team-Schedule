@@ -1,12 +1,9 @@
-// import React from "react";
 import ViewSchedule from "./../../components/ViewSchedule";
 // allows for text input use 
 import React, {Component} from "react";
 import ScheduleAPI from "../../utils/scheduleApi";
-import { connect } from 'react-redux';
-import { bindActionCreators } from "redux";
 import { TextField } from 'rmwc/TextField';
-// import * as scheduleActionCreators from "./scheduleActionCreators";
+
 // allows for card use 
 import {
   Card,
@@ -25,11 +22,8 @@ class CreateSchedule extends Component {
 			time: "",
 			snack: "",
 			schedules: []
-			// schedule: {}
 		};
 
-		// this.scheduleChangehandler = this.scheduleChangehandler.bind(this);
-		// this.onSubmit = this.onSubmit.bind(this);
 		this.PlaceChangehandler = this.PlaceChangehandler.bind(this);
 		this.DateChangehandler = this.DateChangehandler.bind(this);
 		this.TimeChangehandler = this.TimeChangehandler.bind(this);
@@ -38,16 +32,6 @@ class CreateSchedule extends Component {
 		this.loadSchedule = this.loadSchedule.bind(this);
 	}
 
-	// onSubmit = fields => {
- //    ScheduleAPI.schedule(fields)
- //      .then(response => {
- //      this.props.actions.updateSchedule(response.data);
- //    });
- //  };
-
- //  scheduleChangehandler(e) {
- //    this.setState({ place: e.target.value });
- //  }
  	componentDidMount() {
  		this.loadSchedule();
  	}
@@ -56,7 +40,7 @@ class CreateSchedule extends Component {
  		ScheduleAPI.getSchedules()
  		.then(res =>
  			this.setState({
- 				schedules: res.scheduleData
+ 				schedules: res.data
  			})
  		)
  		.catch(err => console.log(err));
@@ -72,7 +56,7 @@ class CreateSchedule extends Component {
 			snack: this.state.snack
 		})
 		.then(res =>
-			this.setState({schedules: [...this.state.schedules, res.scheduleData]})
+			this.setState({ schedules: [...this.state.schedules, res.data] })
 		)
 
 		   this.setState({
@@ -81,9 +65,6 @@ class CreateSchedule extends Component {
             time:'',
             snack: ''
         });
-		// .then(response => {
-			// this.props.actions.updateSchedule(response)
-		// })
 	};
 
 	PlaceChangehandler(e){
@@ -155,18 +136,10 @@ class CreateSchedule extends Component {
 		<ViewSchedule schedules={this.state.schedules} />
 	</div>
 
+
 );
 }
 };
 
 export default CreateSchedule
 
-// const mapStateToProps = (state, ownProps) => {
-//   return {
-//   };
-// };
-// const mapDispatchToProps = (dispatch) => {
-//   return { actions: bindActionCreators(dispatch) };
-// };
-// // export default Schedule; 
-// export default connect(mapStateToProps, mapDispatchToProps)(SchedulePage);
