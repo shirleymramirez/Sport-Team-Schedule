@@ -16,24 +16,26 @@ import {
 import { Typography } from 'rmwc/Typography';
 import { Grid, GridCell } from 'rmwc/Grid';
 
-class SchedulePage extends Component {
+class CreateSchedule extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			date: "",
 			place: "",
+			date: "",
 			time: "",
-			snack: ""
+			snack: "",
+			schedules: []
 			// schedule: {}
 		};
 
 		// this.scheduleChangehandler = this.scheduleChangehandler.bind(this);
 		// this.onSubmit = this.onSubmit.bind(this);
-		this.dateChangehandler = this.dateChangehandler.bind(this);
-		this.placeChangehandler = this.placeChangehandler.bind(this);
-		this.timeChangehandler = this.timeChangehandler.bind(this);
-		this.snackChangehandler = this.snackChangehandler.bind(this);
+		this.PlaceChangehandler = this.PlaceChangehandler.bind(this);
+		this.DateChangehandler = this.DateChangehandler.bind(this);
+		this.TimeChangehandler = this.TimeChangehandler.bind(this);
+		this.SnackChangehandler = this.SnackChangehandler.bind(this);
 		this.onClickHandler = this.onClickHandler.bind(this);
+		this.loadSchedule = this.loadSchedule.bind(this);
 	}
 
 	// onSubmit = fields => {
@@ -46,21 +48,36 @@ class SchedulePage extends Component {
  //  scheduleChangehandler(e) {
  //    this.setState({ place: e.target.value });
  //  }
+ 	componentDidMount() {
+ 		this.loadSchedule();
+ 	}
 
-
+ 	loadSchedule = () => {
+ 		ScheduleAPI.getSchedules()
+ 		.then(res =>
+ 			this.setState({
+ 				schedules: res.scheduleData
+ 			})
+ 		)
+ 		.catch(err => console.log(err));
+ 	};
 
 	onClickHandler(e) {
+		e.preventDefault();
 		console.log(this.state);
 		ScheduleAPI.saveSchedules({
-			date: this.state.date,
 			place: this.state.place,
+			date: this.state.date,
 			time: this.state.time,
 			snack: this.state.snack
-		});
+		})
+		.then(res =>
+			this.setState({schedules: [...this.state.schedules, res.scheduleData]})
+		)
 
 		   this.setState({
-            date:'',
             place:'',
+            date:'',
             time:'',
             snack: ''
         });
@@ -69,19 +86,19 @@ class SchedulePage extends Component {
 		// })
 	};
 
-	dateChangehandler(e){
-		this.setState({ date: e.target.value});
+	PlaceChangehandler(e){
+		this.setState({ place: e.target.value});
 	}
 
-	placeChangehandler(e){
-		this.setState({place: e.target.value});
+	DateChangehandler(e){
+		this.setState({date: e.target.value});
 	}
 
-	timeChangehandler(e){
+	TimeChangehandler(e){
 		this.setState({time: e.target.value});
 	}
 
-	snackChangehandler(e){
+	SnackChangehandler(e){
 		this.setState({snack: e.target.value})
 	};
 
@@ -103,24 +120,24 @@ class SchedulePage extends Component {
 									style={{marginTop: '-1rem'}}> 
 									<center>
 										<TextField 
-										label="place" 
+										label="Place" 
 										value={this.state.place}
-                      					onChange={this.placeChangehandler}/> 
+                      					onChange={this.PlaceChangehandler}/> 
 											<div></div>
 										<TextField 
 										label="Date" 
 										value={this.state.date}
-                      					onChange={this.dateChangehandler}/> 
+                      					onChange={this.DateChangehandler}/> 
 											<div></div>
 										<TextField 
 										label="Time" 
 										value={this.state.time}
-                      					onChange={this.timeChangehandler}/> 
+                      					onChange={this.TimeChangehandler}/> 
 											<div></div>
 										<TextField 
 										label="Assigned Snack" 
 										value={this.state.snack}
-                      					onChange={this.snackChangehandler}/> 
+                      					onChange={this.SnackChangehandler}/> 
 											<div className="submit">
 												<button className="btn" onClick={this.onClickHandler}>Submit</button>
 											</div>	
@@ -135,19 +152,21 @@ class SchedulePage extends Component {
 			<GridCell span="4"></GridCell>
 		</Grid>
 		<br />
-		<ViewSchedule />
+		<ViewSchedule schedules={this.state.schedules} />
 	</div>
 
 );
 }
-}
+};
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-  };
-};
-const mapDispatchToProps = (dispatch) => {
-  return { actions: bindActionCreators(dispatch) };
-};
-// export default Schedule; 
-export default connect(mapStateToProps, mapDispatchToProps)(SchedulePage);
+export default CreateSchedule
+
+// const mapStateToProps = (state, ownProps) => {
+//   return {
+//   };
+// };
+// const mapDispatchToProps = (dispatch) => {
+//   return { actions: bindActionCreators(dispatch) };
+// };
+// // export default Schedule; 
+// export default connect(mapStateToProps, mapDispatchToProps)(SchedulePage);
