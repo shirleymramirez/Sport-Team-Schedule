@@ -3,7 +3,6 @@ import axios from "axios";
 export default {
 	Add: function(data) {
 		console.log(data);
-		// console.log("hello");
 		// add
 		return axios.post("/api/rosters",{
 			name: data.name,

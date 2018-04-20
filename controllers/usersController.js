@@ -1,21 +1,17 @@
 const db = require("../models/");
 
 module.exports = {
-  findbyUserName: function(req, res) {
+  authenticate: function(req, res) {
     console.log(req.body);
-    db.Users.find({ username: req.body.username }).then(dbModel => {
-      if (!dbModel && typeof dbModel === "object") {
-        res.status(404).send(err);
-      } else {
-        console.log("login info:" + dbModel);
-        res.send(dbModel);
-      }
+    passport.authenticate("local", {
+      successRedirect: "/secret",
+      failureRedirect: "/login"
     });
   },
   findAll: function(req, res) {
     db.Users.find().then(dbModel => {
-        console.log("All Users: " + dbModel);
-        res.send(dbModel);
+      console.log("All Users: " + dbModel);
+      res.send(dbModel);
     });
   },
   create: function(req, res) {

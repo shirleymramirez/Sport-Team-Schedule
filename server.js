@@ -10,6 +10,7 @@ const MongoStore = require('connect-mongo')(session);
 const routes = require('./routes/');
 const SocketManager = require('./socketmanager/SocketManager');
 const app = express();
+const localStrategy = require('./passport/localStrategy');
 
 const PORT = process.env.PORT || 3001;
 // Configure body parser for AJAX requests
@@ -22,6 +23,8 @@ app.use(express.static(path.join(__dirname, "client/build")));
 app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
+
+passport.use(localStrategy);
 
 // Add routes, both API and view
 app.use(routes);

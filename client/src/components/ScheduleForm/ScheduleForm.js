@@ -56,11 +56,7 @@ class ScheduleForm extends Component {
                   <label>Snack:</label>
                   <input type="text" placeholder="Snack" value={this.state.snack} onChange={e => this.change(e)} name="snack" />
                 </div>
-                {/* <div className="input-group">
-                  <label>Confirm Password:</label>
-                  <input type="password" placeholder="Confirm Password" value={this.state.Password2} onChange={e => this.change(e)} name="Password2" />
-                </div>
-                <br /> */}
+               
                 <div className="input-group">
                   <button onClick={e => this.onSubmit(e)}>
                     <Link to="/parent">

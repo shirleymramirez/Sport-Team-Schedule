@@ -23,6 +23,8 @@ const ViewRoster = props => (
            </thead>
            <tbody>
              <tr>
+              {/* populating roster table with players information, can still revise this part */}
+              {/* this is not efficient way of coding */}
                <td >
                  {props.players.length > 0 && props.players.map( player =>
                        <SimpleListItem key={player.id} text={player.name} /> )} 
