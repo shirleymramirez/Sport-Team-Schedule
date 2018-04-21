@@ -1,10 +1,21 @@
 .footer {
-    position: relative;
+    position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
 }
 
 .footer .mdc-toolbar__title {
+    font-size: 12px;
+}
+
+#foot {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+#foot .mdc-toolbar__title {
     font-size: 12px;
 }
