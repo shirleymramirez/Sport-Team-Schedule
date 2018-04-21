@@ -23,8 +23,8 @@ class Login extends Component {
     super(props);
     this.state = {
       username: "",
-      password: "",
-      isAuthenticated: false
+      password: ""
+      // isAuthenticated: true
     };
 
     this.userNameChangehandler = this.userNameChangehandler.bind(this);
@@ -39,15 +39,16 @@ class Login extends Component {
       password: this.state.password
     }).then(response => {
       this.props.actions.updateUser(response.data[0]);
-    }).catch((err, res) => {
-      if(err) {
-        this.setState({ errorMessage: "Authentication Failed"})
-      }
-      localStorage.setItem('token', res.body.token)
-      console.log(res.body);
-      this.getItem('token');
-    })
-  };
+    // }).catch((err, res) => {
+    //   if(err) {
+    //     this.setState({ errorMessage: "Authentication Failed"})
+    //   }
+    //   localStorage.setItem('token', res.body.token)
+    //   console.log(res.body);
+    //   this.getItem('token');
+    // })
+    });
+  }
 
   userNameChangehandler(e) {
     this.setState({ username: e.target.value});
@@ -57,10 +58,10 @@ class Login extends Component {
     this.setState({ password: e.target.value})
   };
 
-  isAuthenticated(){
-    const token = localStorage.getItem('token');
-     return token && token.length > 10 ;
-  }
+  // isAuthenticated(){
+  //   const token = localStorage.getItem('token');
+  //    return token && token.length > 10 ;
+  // }
 
   render() {
     return <div>

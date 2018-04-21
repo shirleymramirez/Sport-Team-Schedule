@@ -1,19 +1,20 @@
 const passport  = require('passport')
-const LocalStrategy = require('./localStrategy')
+const localStrategy = require('./localStrategy')
 const User = require('../models/users')
 
-passport.serializeUser((user, done) => {
+console.log("Setup password with local strategy");
+passport.use(localStrategy);
+
+passport.serializeUser((user, cb) => {
     console.log(user);
-    done(null, {_id: user._id})
+    cb(null, user._id)
 });
 
-passport.deserializeUser((id, done) => {
-    User.find({_id: id}, 'name local.username', (err, user) => {
+passport.deserializeUser((id, cb) => {
+    User.find({_id: id}, 'name username', (err, user) => {
         console.log(user)
-        done(null, user)
+        cb(null, user)
     })
 });
-
-passport.use(LocalStrategy)
 
 module.exports = passport;

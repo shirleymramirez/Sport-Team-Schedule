@@ -7,17 +7,17 @@ const userSchema = new Schema({
   kidsname: { type: String },
   phonenumber: { type: String },
   local: {
-    username: { type: String, unique: false, required: false },
-    password: { type: String, unique: false, required: false }
+    username: { type: String, unique: true, required: false },
+    password: { type: String, unique: false, required: false },
   },
-  email: { type: String }
+  email: { type: String, unique: true, required: true, trim: true }
 });
 
 // Define Schema
 userSchema.methods = {
   checkPassword: function(inputPassword) {
     console.log("userSchema checkPassword");
-    return bcrypt.compareSync(inputPassword, this.local.password);
+    return bcrypt.compareSync(inputPassword, this.password);
   },
   hashPassword: plainTextPassword => {
     console.log("userSchema hashPassword");
@@ -25,16 +25,4 @@ userSchema.methods = {
   }
 };
 
-// Define hook for pre-saving
-userSchema.pre("save", function(next) {
-  if (!this.password) {
-    console.log("No password provided");
-    next();
-  } else {
-    this.password = this.hashPassword(this.local.password);
-    next();
-  }
-});
-
-const User = (module.exports = mongoose.model("user", userSchema));
-module.exports = User;
+module.exports = mongoose.model("user", userSchema);

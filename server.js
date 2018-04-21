@@ -7,15 +7,15 @@ var session = require('express-session');
 const passport = require('./passport');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
-const routes = require('./routes/');
-const SocketManager = require('./socketmanager/SocketManager');
+const SocketManager = require("./socketmanager/SocketManager");
 const app = express();
-const localStrategy = require('./passport/localStrategy');
+// const UserController = require("./controllers/usersController.js");
 
 const PORT = process.env.PORT || 3001;
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cookieParser);
 // Production
 app.use(express.static(path.join(__dirname, "client/build")));
 
@@ -24,10 +24,6 @@ app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
-passport.use(localStrategy);
-
-// Add routes, both API and view
-app.use(routes);
 
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
@@ -39,22 +35,21 @@ mongoose.connect(MONGO_URL);
 // middleware
 app.use(
   session({
-    secret: process.env.APP_SECRET || "this is the default passphrase",
+    // secret: process.env.APP_SECRET || "this is the default passphrase",
+    secret: "cat",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     store: new MongoStore({ mongooseConnection: mongoose.connection })
   })
 );
 
-// passport log-in authentication
+// passport log-in authentication 
 app.use(passport.initialize());
 app.use(passport.session());
 
-// routes for handlebars
-var users = require("./routes/api/users");
-app.use('/users', users);
-
-SocketManager(app, PORT);
+// Add routes, both API and view
+const routes = require("./routes")(passport);
+app.use(routes);
 
 // handebars engine
 app.set('views', path.join(__dirname, 'views'));
@@ -64,4 +59,6 @@ app.set('view engine', 'handlebars');
 // routes for handlebars
 var users = require("./routes/api/users");
 app.use('/users', users);
+
+SocketManager(app, PORT);
 

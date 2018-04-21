@@ -1,13 +1,17 @@
 const router = require("express").Router();
 const usersController = require("../../controllers/usersController");
 
+module.exports = (passport) => {
 // Matches with "/api/users"
-router.route("/auth/signup")
-	.post(usersController.create);
+	usersController.setPassport(passport);
+	router.route("/auth/signup")
+		.post(usersController.create);
 
-router.route("/auth/login").post(usersController.authenticate);
+	router.route("/auth/login").post(usersController.authenticate);
 
-router.route("/users")
-	.get(usersController.findAll);
+	router.route("/users")
+		.get(usersController.findAll);
+	return router;
+};
 
-module.exports = router;
+

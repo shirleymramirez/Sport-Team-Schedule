@@ -2,11 +2,15 @@ const db = require("../models/");
 
 module.exports = {
   authenticate: function(req, res) {
-    console.log(req.body);
-    passport.authenticate("local", {
-      successRedirect: "/secret",
-      failureRedirect: "/login"
+    console.log("usercontroller log", req.body);
+    this.passport.authenticate('local', function(req, res){
+      console.log("passport user", req.user);
+      res.send(dbModel)
+      
     });
+  },
+  setPassport: passport => {
+    this.passport = passport;
   },
   findAll: function(req, res) {
     db.Users.find().then(dbModel => {
