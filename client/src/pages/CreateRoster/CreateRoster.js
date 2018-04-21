@@ -140,11 +140,12 @@ class CreateRoster extends Component {
                 <CardActions />
               </Card>
               <br />
+            {/* trying to make this delete   
               <Card style={{ width: "21rem" }}>
                 <CardPrimaryAction>
                   <div style={{ padding: "0 1rem 1rem 1rem" }}>
                     <Typography use="title" tag="h2">
-                      <center>Delete From Roster</center>
+                      <center>Delete From Roster(coming soon)</center>
                     </Typography>
                     <Typography
                       use="subheading1"
@@ -172,7 +173,7 @@ class CreateRoster extends Component {
                   </div>
                 </CardPrimaryAction>
                 <CardActions />
-              </Card>              
+              </Card>  */}            
             </center>
           </GridCell>
           <GridCell span="6">
