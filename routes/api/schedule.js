@@ -1,13 +1,11 @@
 const router = require("express").Router();
 const scheduleController = require("../../controllers/scheduleController");
 
-// Matches with "/api/users"
+// Matches with "/api/schedules"
 router.route("/schedules")
 	.post(scheduleController.create);
 
-// router.route("/schedule")
-// 	.post(scheduleController.findbyUserName);
-
-router.get("/schedules", scheduleController.findAll);
+router.route("/schedules")
+	.get(scheduleController.findAll);
 
 module.exports = router;
