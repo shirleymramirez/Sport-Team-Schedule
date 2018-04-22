@@ -90,35 +90,35 @@ class CreateSchedule extends Component {
 			<GridCell span="4"></GridCell>
 			<GridCell span="4">
 				<center>
-					<Card style={{width: '21rem'}}>
+					<Card style={{width: '35rem'}}>
 						<CardPrimaryAction>
 							<div style={{padding: '0 1rem 1rem 1rem'}}>
-								<Typography use="title" tag="h2"><center>Add to Schedule</center></Typography>
+								<Typography use="title" tag="h2"><h4><center>Add to Schedule</center></h4></Typography>
 								<Typography
 									use="subheading1"
 									tag="h3"
 									theme="text-secondary-on-background"
 									style={{marginTop: '-1rem'}}> 
 									<center>
-										<TextField 
+										<h5><TextField 
 										label="Place" 
 										value={this.state.place}
-                      					onChange={this.PlaceChangehandler}/> 
+                      					onChange={this.PlaceChangehandler}/></h5> 
 											<div></div>
-										<TextField 
+										<h5><TextField 
 										label="Date" 
 										value={this.state.date}
-                      					onChange={this.DateChangehandler}/> 
+                      					onChange={this.DateChangehandler}/></h5> 
 											<div></div>
-										<TextField 
+										<h5><TextField 
 										label="Time" 
 										value={this.state.time}
-                      					onChange={this.TimeChangehandler}/> 
+                      					onChange={this.TimeChangehandler}/></h5> 
 											<div></div>
-										<TextField 
+										<h5><TextField 
 										label="Assigned Snack" 
 										value={this.state.snack}
-                      					onChange={this.SnackChangehandler}/> 
+                      					onChange={this.SnackChangehandler}/></h5> 
 											<div className="submit">
 												<button className="btn" onClick={this.onClickHandler}>Submit</button>
 											</div>	

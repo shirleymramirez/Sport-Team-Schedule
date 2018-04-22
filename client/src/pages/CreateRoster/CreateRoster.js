@@ -77,11 +77,11 @@ class CreateRoster extends Component {
         <Grid>
           <GridCell span="6">
             <center>
-              <Card style={{ width: "21rem" }}>
+              <Card style={{ width: "35rem" }}>
                 <CardPrimaryAction>
                   <div style={{ padding: "0 1rem 1rem 1rem" }}>
                     <Typography use="title" tag="h2">
-                      <center>Add to Roster</center>
+                      <h4><center>Add to Roster</center></h4>
                     </Typography>
                     <Typography
                       use="subheading1"
@@ -90,23 +90,23 @@ class CreateRoster extends Component {
                       style={{ marginTop: "-1rem" }}
                     >
                       <center>
-                        <TextField
+                        <h5><TextField
                           label="Player's Name"
                           value={this.state.name}
                           onChange={this.NameChangehandler}
-                        />
+                        /></h5>
                         <div> </div>
-                        <TextField
+                        <h5><TextField
                           label="Player's Age"
                           value={this.state.age}
                           onChange={this.AgeChangehandler}
-                        />
+                        /></h5>
                         <div> </div>
-                        <TextField
+                        <h5><TextField
                           label="Team"
                           value={this.state.team}
                           onChange={this.TeamChangehandler}
-                        />
+                        /></h5>
                         <div> </div>
                         <div className="submit">
                           <button
