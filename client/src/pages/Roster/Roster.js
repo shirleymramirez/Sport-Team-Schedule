@@ -1,20 +1,20 @@
-import React, {Component}from "react";
-import './roster.css';
+import React, { Component } from "react";
+import "./roster.css";
 import ViewRoster from "./../../components/ViewRoster";
-import { Grid, GridCell } from 'rmwc/Grid';
+import { Grid, GridCell } from "rmwc/Grid";
 import RosterAPI from "../../utils/rosterApi";
 
 class Roster extends Component {
-	  constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       name: "",
       age: "",
       team: "",
       players: []
-		};
-		
-		this.NameChangehandler = this.NameChangehandler.bind(this);
+    };
+
+    this.NameChangehandler = this.NameChangehandler.bind(this);
     this.AgeChangehandler = this.AgeChangehandler.bind(this);
     this.TeamChangehandler = this.TeamChangehandler.bind(this);
     this.onClickHandler = this.onClickHandler.bind(this);
@@ -42,10 +42,9 @@ class Roster extends Component {
       name: this.state.name,
       age: this.state.age,
       team: this.state.team
-    })
-    .then(res =>
+    }).then(res =>
       this.setState({ players: [...this.state.players, res.data] })
-    )
+    );
     // clears input
     this.setState({
       name: "",
@@ -64,8 +63,9 @@ class Roster extends Component {
     this.setState({ team: e.target.value });
   }
 
-	render() {
-		return <div>
+  render() {
+    return (
+      <div>
         <Grid>
           <GridCell span="4" />
           <GridCell span="4">
@@ -73,8 +73,9 @@ class Roster extends Component {
           </GridCell>
           <GridCell span="4" />
         </Grid>
-      </div>;
-		}
-};
+      </div>
+    );
+  }
+}
 
 export default Roster;

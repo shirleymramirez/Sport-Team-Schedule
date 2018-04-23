@@ -1,17 +1,12 @@
 import React, { Component } from "react";
 import ViewRoster from "./../../components/ViewRoster";
 import RosterAPI from "../../utils/rosterApi";
-import { Grid, GridCell } from 'rmwc/Grid';
-import { Typography } from 'rmwc/Typography';
-import { TextField } from 'rmwc/TextField';
+import { Grid, GridCell } from "rmwc/Grid";
+import { Typography } from "rmwc/Typography";
+import { TextField } from "rmwc/TextField";
 
-// allows for card use 
-import {
-  Card,
-  CardPrimaryAction,
-  CardActions,
-} from 'rmwc/Card';
-
+// allows for card use
+import { Card, CardPrimaryAction, CardActions } from "rmwc/Card";
 
 class CreateRoster extends Component {
   constructor(props) {
@@ -50,10 +45,9 @@ class CreateRoster extends Component {
       name: this.state.name,
       age: this.state.age,
       team: this.state.team
-    })
-    .then(res =>
+    }).then(res =>
       this.setState({ players: [...this.state.players, res.data] })
-    )
+    );
     // clears input
     this.setState({
       name: "",
@@ -81,7 +75,9 @@ class CreateRoster extends Component {
                 <CardPrimaryAction>
                   <div style={{ padding: "0 1rem 1rem 1rem" }}>
                     <Typography use="title" tag="h2">
-                      <h4><center>Add to Roster</center></h4>
+                      <h4>
+                        <center>Add to Roster</center>
+                      </h4>
                     </Typography>
                     <Typography
                       use="subheading1"
@@ -90,28 +86,32 @@ class CreateRoster extends Component {
                       style={{ marginTop: "-1rem" }}
                     >
                       <center>
-                        <h5><TextField
-                          label="Player's Name"
-                          value={this.state.name}
-                          onChange={this.NameChangehandler}
-                        /></h5>
+                        <h5>
+                          <TextField
+                            label="Player's Name"
+                            value={this.state.name}
+                            onChange={this.NameChangehandler}
+                          />
+                        </h5>
                         <div> </div>
-                        <h5><TextField
-                          label="Player's Age"
-                          value={this.state.age}
-                          onChange={this.AgeChangehandler}
-                        /></h5>
+                        <h5>
+                          <TextField
+                            label="Player's Age"
+                            value={this.state.age}
+                            onChange={this.AgeChangehandler}
+                          />
+                        </h5>
                         <div> </div>
-                        <h5><TextField
-                          label="Team"
-                          value={this.state.team}
-                          onChange={this.TeamChangehandler}
-                        /></h5>
+                        <h5>
+                          <TextField
+                            label="Team"
+                            value={this.state.team}
+                            onChange={this.TeamChangehandler}
+                          />
+                        </h5>
                         <div> </div>
                         <div className="submit">
-                          <button
-                            className="btn"
-                            onClick={this.onClickHandler}>
+                          <button className="btn" onClick={this.onClickHandler}>
                             Submit
                           </button>
                         </div>
@@ -130,6 +130,5 @@ class CreateRoster extends Component {
       </div>
     );
   }
-};
+}
 export default CreateRoster;
-
