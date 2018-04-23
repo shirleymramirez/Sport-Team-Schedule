@@ -24,8 +24,8 @@ const Home = () =>
 	  <GridCell span="4"></GridCell>
 	  <GridCell span="4">
 	  <center>
-	  	<Button stroked id="btn1" ><Link className="btn1" to="/login">Parent</Link></Button>
-	  	<Button stroked id="btn2" ><Link className="btn2" to="/login">Coach</Link></Button>
+	  	<Button stroked id="btn1" ><Link className="btn1" to="/login"><h3>Parent</h3></Link></Button>
+	  	<Button stroked id="btn2" ><Link className="btn2" to="/login"><h3>Coach</h3></Link></Button>
 	  </center>
 	  </GridCell>
 	  <GridCell span="4"></GridCell>
