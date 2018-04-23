@@ -35,8 +35,6 @@ const App = () =>
           <Route exact path="/coach" component={CoachView} />
           <Route exact path="/parent" component={ParentsView} />
           <Route component={Home} />
-
-          
         </Switch>
         <Footer />
       </div>

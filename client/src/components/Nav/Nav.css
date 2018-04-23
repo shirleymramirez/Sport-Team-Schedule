@@ -3,5 +3,9 @@
 }
 
 .menu {
-	color: black;
+    color: black;
+}
+
+.logOutButton {
+    color: white;
 }

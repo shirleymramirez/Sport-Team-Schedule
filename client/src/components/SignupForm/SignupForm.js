@@ -1,96 +1,129 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { TextField } from "rmwc/TextField";
+import {
+  Card,
+  CardPrimaryAction,
+  CardMedia,
+  CardAction,
+  CardActions,
+  CardActionButtons
+} from "rmwc/Card";
+import { Typography } from "rmwc/Typography";
+import { Grid, GridCell } from "rmwc/Grid";
 import "./SignupForm.css";
 
 class SignupForm extends Component {
-	state={
-		username:'',	      
-		name:'',
-		kidsname:'',
-		phonenumber:'',
-		email:'',
-		password:''
-		// Password2:''
-	};
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      name: "",
+      kidsname: "",
+      phonenumber: "",
+      email: "",
+      password: ""
+    };
+    this.usernameChangehandler = this.usernameChangehandler.bind(this);
+    this.nameChangehandler = this.nameChangehandler.bind(this);
+    this.kidsnameChangehandler = this.kidsnameChangehandler.bind(this);
+    this.phonenumberChangehandler = this.phonenumberChangehandler.bind(this);
+    this.emailChangehandler = this.emailChangehandler.bind(this);
+    this.passwordChangehandler = this.passwordChangehandler.bind(this);
+    this.onClickHandler = this.onClickHandler.bind(this);
+  }
 
-	change = e => {
-		this.setState({
-			[e.target.name]: e.target.value
-		});
-	};
+  usernameChangehandler(e) {
+    this.setState({ username: e.target.value });
+  }
+  nameChangehandler(e) {
+    this.setState({ name: e.target.value });
+  }
+  kidsnameChangehandler(e) {
+    this.setState({ kidsname: e.target.value });
+  }
+  phonenumberChangehandler(e) {
+    this.setState({ phonenumber: e.target.value });
+  }
+  emailChangehandler(e) {
+    this.setState({ email: e.target.value });
+  }
+  passwordChangehandler(e) {
+    this.setState({ password: e.target.value });
+  }
 
-	onSubmit = (e) => {
-		e.preventDefault();
-		this.props.onSubmit(this.state);
-		this.setState({
-			username:'',	      
-			name:'',
-			kidsname:'',
-			phonenumber:'',
-			email:'',
-			password:''
-			// Password2:''
-		});
-    
-	};
+  onClickHandler(e) {
+    e.preventDefault();
+    this.setState({
+      username: "",
+      name: "",
+      kidsname: "",
+      phonenumber: "",
+      email: "",
+      password: ""
+    });
+  }
 
-
-	render(){
-		return <div className="container">
-        <div className="col-lg-3" />
-        <div className="col-lg-6">
-          <div class="panel panel-default">
-            <div className="panel-body">
-              <h3 className="text-center">Sign Up Here</h3>
-              <form className="text-center">
-                <center><div className="input-group">
-                  <label>Username:</label>
-                  <input type="text" placeholder="Username" value={this.state.username} name="username" onChange={e => this.change(e)} />
+  render() {
+    return <div>
+        <Grid>
+          <GridCell span="4" />
+          <GridCell span="4">
+          <center>
+            <Card className="sigUpCard">
+              <CardPrimaryAction>
+                <CardMedia sixteenByNine style={{ backgroundImage: "url(https://m.media-amazon.com/images/S/aplus-media/vc/7895a621-9359-412d-92d2-94c15adc4c70._SL300__.jpg)" }} />
+                <div style={{ padding: "0 1rem 1rem 1rem" }}>
+                  <Typography use="title">
+                    <h3>Sign Up Here</h3>
+                  </Typography>
+                  <Typography use="subheading1" theme="text-secondary-on-background" style={{ marginTop: "-1rem" }}>
+                    <h5>
+                      <TextField label="Username" value={this.state.username} onChange={this.usernameChangehandler} />
+                    </h5>
+                  </Typography>
+                  <Typography use="body1" tag="div" theme="text-secondary-on-background">
+                    <h5>
+                      <TextField label="Fullname" value={this.state.name} onChange={this.nameChangehandler} />
+                    </h5>
+                  </Typography>
+                  <Typography use="body1" tag="div" theme="text-secondary-on-background">
+                    <h5>
+                      <TextField label="Kidsname" value={this.state.Kidsname} onChange={this.kidsnameChangehandler} />
+                    </h5>
+                  </Typography>
+                  <Typography use="body1" tag="div" theme="text-secondary-on-background">
+                    <h5>
+                      <TextField label="email" value={this.state.email} onChange={this.emailChangehandler} />
+                    </h5>
+                  </Typography>
+                  <Typography use="body1" tag="div" theme="text-secondary-on-background">
+                    <h5>
+                      <TextField label="Phonenumber" value={this.state.number} onChange={this.phonenumberChangehandler} />
+                    </h5>
+                  </Typography>
+                  <Typography use="body1" tag="div" theme="text-secondary-on-background">
+                    <h5>
+                      <TextField label="password" value={this.state.password} onChange={this.passwordChangehandler} type="password" />
+                    </h5>
+                  </Typography>
                 </div>
-                <br />
-                <div className="input-group">
-                  <label>Full Name:</label>
-                  <input type="text" placeholder="Your Full Name" value={this.state.name} onChange={e => this.change(e)} name="name" />
-                </div>
-                <br />
-                <div className="input-group">
-                  <label>Child's Name:</label>
-                  <input type="text" placeholder="Your Child's Full Name" value={this.state.Kidsname} onChange={e => this.change(e)} name="kidsname" />
-                </div>
-                <br />
-                <div className="input-group">
-                  <label>Email Adress:</label>
-                  <input type="text" placeholder="Email" value={this.state.email} onChange={e => this.change(e)} name="email" />
-                </div>
-                <br />
-                <div className="input-group">
-                  <label>PhoneNumber:</label>
-                  <input type="text" placeholder="PhoneNumber" value={this.state.number} onChange={e => this.change(e)} name="phonenumber" />
-                </div>
-                <br />
-                <div className="input-group">
-                  <label>Password:</label>
-                  <input type="password" placeholder="Password" value={this.state.password} onChange={e => this.change(e)} name="password" />
-                </div>
-                <br />
-                {/* <div className="input-group">
-                  <label>Confirm Password:</label>
-                  <input type="password" placeholder="Confirm Password" value={this.state.Password2} onChange={e => this.change(e)} name="Password2" />
-                </div>
-                <br /> */}
-                <div className="input-group">
-                  <button onClick={e => this.onSubmit(e)}>
+              </CardPrimaryAction>
+              <CardActions>
+                <CardActionButtons>
+                  <CardAction onClick={this.onClickHandler  }>
                     <Link to="/parent">
-                      Sign Up
+                      <h4>Sign Up</h4>
                     </Link>
-                  </button>
-                </div>
-                </center>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-3" />
-      </div>;}
+                  </CardAction>
+                </CardActionButtons>
+              </CardActions>
+            </Card>
+          </center>
+          </GridCell>
+         <GridCell span="4" /> 
+        </Grid>
+      </div>;
+  }
 }
 export default SignupForm;
