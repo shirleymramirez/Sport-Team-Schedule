@@ -73,7 +73,7 @@ class CreateRoster extends Component {
   }
   render() {
     return (
-      <div>
+      <div style={{ height: "200rem" }}>
         <Grid>
           <GridCell span="6">
             <center>

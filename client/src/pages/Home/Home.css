@@ -1,15 +1,17 @@
 #btn1 {
-	width: 50%;
-	height: 100%;
+    width: 50%;
+    height: 100%;
+    border: 2px solid blue;
 }
 
 #btn2 {
-	width: 50%;
-	height: 100%;
+    width: 50%;
+    height: 100%;
+    border: 2px solid blue;
 }
 
 .jumbotron {
-	padding-top: 0;
-	padding-bottom:0;
-	margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-var Forecast = require('react-forecast');
+import Forecast from './forecast';
 
 class Weather extends Component {
   render(){

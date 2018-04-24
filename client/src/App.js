@@ -3,8 +3,10 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Chat from "./pages/Chat";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup"
+import ParentLogin from "./pages/ParentLogin";
+import CoachLogin from "./pages/CoachLogin";
+import ParentSignup from "./pages/ParentSignup"
+import CoachSignup from "./pages/CoachSignup";
 import Roster from "./pages/Roster";
 import Schedule from "./pages/Schedule";
 import CreateSchedule from "./pages/CreateSchedule";
@@ -17,7 +19,6 @@ import store from "./store";
 import "./index.css";
 
 const App = () =>
-
   <Provider store={store}>
     <Router>
       <div>
@@ -27,8 +28,10 @@ const App = () =>
           <Route exact path="/chat" component={Chat} />
           <Route exact path="/chat/:id" component={Chat} />
           <Route exact path="/roster" component={Roster} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/login/signup" component={Signup} />
+          <Route exact path="/parent/login" component={ParentLogin} />
+          <Route exact path="/coach/login" component={CoachLogin} />
+          <Route exact path="/parent/signup" component={ParentSignup} />
+          <Route exact path="/coach/signup" component={CoachSignup} />
           <Route exact path="/schedule" component={Schedule} />
           <Route exact path="/createschedule" component={CreateSchedule} />
           <Route exact path="/createroster" component={CreateRoster} />

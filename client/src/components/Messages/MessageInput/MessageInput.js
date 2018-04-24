@@ -4,7 +4,7 @@ import TextField from "rmwc/TextField";
 
 const MessageInput = props => (
   <div className="message-input">
-      <TextField className="chat-messagesInput" 
+      <TextField 
         textarea fullwidth label="Type a message..." 
         rows="2" value={props.value}
         onChange={props.onChange}

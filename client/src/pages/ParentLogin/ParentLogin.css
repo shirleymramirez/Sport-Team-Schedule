@@ -1,0 +1,6 @@
+.mdc-text-field__input,
+.mdc-floating-label {
+    font-size: 16px;
+    padding: 0 1px;
+    margin-top: 10px;
+}

@@ -6,11 +6,13 @@ const userSchema = new Schema({
   name: { type: String, index: true, unique: false },
   kidsname: { type: String },
   phonenumber: { type: String },
-  local: {
-    username: { type: String, unique: false, required: false },
-    password: { type: String, unique: false, required: false }
-  },
-  email: { type: String }
+  username: { type: String, unique: true, required: false },
+  password: { type: String, unique: false, required: false },
+  // local: {
+  //   username: { type: String, unique: true, required: false },
+  //   password: { type: String, unique: false, required: false },
+  // },
+  email: { type: String, unique: true, required: true, trim: true }
 });
 
 // Define Schema
@@ -23,16 +25,5 @@ userSchema.methods = {
   }
 };
 
-// Define hook for pre-saving
-userSchema.pre("save", function(next) {
-  if (!this.password) {
-    console.log("No password provided");
-    next();
-  } else {
-    this.password = this.hashPassword(this.local.password);
-    next();
-  }
-});
+module.exports = mongoose.model("user", userSchema);
 
-const User = (module.exports = mongoose.model("user", userSchema));
-module.exports = User;

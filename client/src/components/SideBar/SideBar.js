@@ -29,7 +29,6 @@ class SideBar extends Component {
           className="sidebar-inputSearch"
           withLeadingIcon="search"
           label="Search..."
-          use="message"
         />
         <List twoLine>
           {this.state.connectedUsers.map(user =>

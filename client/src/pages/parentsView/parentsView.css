@@ -1,13 +1,9 @@
-#rosterbtn {
-	width: 50%;
-	height: 100%;
-	position: relative;
-	top: 350px;
-}
-
+#rosterbtn,
 #schedulebtn {
-	width: 50%;
-	height: 100%;
-	position: relative;
-	top:350px;
+    width: 50%;
+    height: 100%;
+    position: relative;
+    top: 350px;
+    margin-top: 20px;
+    border: 1px solid blue;
 }

@@ -48,6 +48,11 @@ class Messages extends Component {
     });
   }
 
+  componentWillUnmount() {
+    this.props.socket.emit("LEAVE", { id: this.props.userId, name: this.props.fullname });
+  }
+
+
   handleOnChange = event => {
     this.setState({ pendingMessage: event.target.value });
   }

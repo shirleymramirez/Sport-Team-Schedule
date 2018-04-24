@@ -85,7 +85,7 @@ class CreateSchedule extends Component {
 
   render() {
     return (
-   <div>
+   <div style={{ height:'100rem'}}>
 		<Grid>
 			<GridCell span="4"></GridCell>
 			<GridCell span="4">

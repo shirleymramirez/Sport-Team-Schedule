@@ -1,0 +1,15 @@
+.sigUpCard {
+    margin-bottom: 50px;
+    width: 40rem;
+}
+
+.signupFormInput {
+    font-size: 8px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    height: 50px;
+}
+
+.mdc-text-field--upgraded:not(.mdc-text-field--fullwidth):not(.mdc-text-field--box) {
+    margin-top: 0;
+}
